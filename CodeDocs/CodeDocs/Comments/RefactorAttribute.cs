@@ -8,7 +8,15 @@ namespace CodeDocs.Comments
     /// <summary>
     /// Working feature that needs improvement
     /// </summary>
-    class RefactorAttribute
+    public class RefactorAttribute : CodeBasedCommentAttribute
     {
+        public RefactorAttribute(string details) : base(details)
+        {
+        }
+
+        public RefactorAttribute(int riskLevel, string details)
+            : base(riskLevel, details)
+        {
+        }
     }
 }

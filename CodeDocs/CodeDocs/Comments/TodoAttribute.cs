@@ -14,5 +14,10 @@ namespace CodeDocs.Comments
         public TodoAttribute(string details) : base(details)
         {
         }
+
+        public TodoAttribute(int riskLevel, string details)
+            : base(riskLevel, details)
+        {
+        }
     }
 }

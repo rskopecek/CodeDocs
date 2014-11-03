@@ -8,7 +8,15 @@ namespace CodeDocs.Comments
     /// <summary>
     /// Unsure of actual intent.
     /// </summary>
-    class PurposeAttribute
+    public class PurposeAttribute : CodeBasedCommentAttribute
     {
+        public PurposeAttribute(string details) : base(details)
+        {
+        }
+
+        public PurposeAttribute(int riskLevel, string details)
+            : base(riskLevel, details)
+        {
+        }
     }
 }

@@ -8,7 +8,15 @@ namespace CodeDocs.Comments
     /// <summary>
     /// "if" a potential future scenario occurs, this will need to be changed or these are some insights about the change.
     /// </summary>
-    class WhenAttribute
+    public class WhenAttribute : CodeBasedCommentAttribute
     {
+        public WhenAttribute(string details) : base(details)
+        {
+        }
+
+        public WhenAttribute(int riskLevel, string details)
+            : base(riskLevel, details)
+        {
+        }
     }
 }

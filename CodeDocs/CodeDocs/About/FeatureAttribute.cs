@@ -5,7 +5,11 @@ using System.Text;
 
 namespace CodeDocs.About
 {
-    class FeatureAttribute
+    public class FeatureAttribute : DocsAttribute
     {
+        public FeatureAttribute(string title, string description)
+            : base(title, description)
+        {
+        }
     }
 }

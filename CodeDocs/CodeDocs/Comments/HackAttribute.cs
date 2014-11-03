@@ -8,7 +8,15 @@ namespace CodeDocs.Comments
     /// <summary>
     /// Working feature.  Requires refactoring due to shortcuts needed to make it work.
     /// </summary>
-    public class HackAttribute
+    public class HackAttribute : CodeBasedCommentAttribute
     {
+        public HackAttribute(string details) : base(details)
+        {
+        }
+
+        public HackAttribute(int riskLevel, string details)
+            : base(riskLevel, details)
+        {
+        }
     }
 }

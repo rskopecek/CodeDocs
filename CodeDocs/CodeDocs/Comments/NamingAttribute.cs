@@ -8,7 +8,15 @@ namespace CodeDocs.Comments
     /// <summary>
     /// Intent is clear.  Howerver, naming could be cleaner.
     /// </summary>
-    class NamingAttribute
+    public class NamingAttribute : CodeBasedCommentAttribute
     {
+        public NamingAttribute(string details) : base(details)
+        {
+        }
+
+        public NamingAttribute(int riskLevel, string details)
+            : base(riskLevel, details)
+        {
+        }
     }
 }
