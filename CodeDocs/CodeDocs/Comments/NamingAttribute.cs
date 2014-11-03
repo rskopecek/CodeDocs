@@ -6,7 +6,7 @@ using System.Text;
 namespace CodeDocs.Comments
 {
     /// <summary>
-    /// Intent is clear.  Howerver, naming could be cleaner.
+    /// Intent is clear.  However, naming could be cleaner.
     /// </summary>
     public class NamingAttribute : CodeBasedCommentAttribute
     {

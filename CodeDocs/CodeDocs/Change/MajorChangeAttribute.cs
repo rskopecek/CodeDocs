@@ -7,8 +7,8 @@ namespace CodeDocs.Identification
 {
     public class MajorChangeAttribute : ChangeAttribute
     {
-        public MajorChangeAttribute(string who, string what, DateTime when, string why)
-            : base(who, what, when, why)
+        public MajorChangeAttribute(int year, int month, int day, string who, string what, string why)
+            : base(year, month, day, who, what, why)
         {
         }        
     }

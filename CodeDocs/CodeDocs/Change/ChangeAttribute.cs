@@ -10,11 +10,11 @@ namespace CodeDocs.Identification
     /// </summary>
     public class ChangeAttribute : Attribute
     {
-        public ChangeAttribute(string who, string what, DateTime when, string why)
+        public ChangeAttribute(int year, int month, int day, string who, string what, string why)
         {
             Who = who;
             What = what;
-            When = when;
+            When = new DateTime(year, month, day);
             Why = why;
         }
 

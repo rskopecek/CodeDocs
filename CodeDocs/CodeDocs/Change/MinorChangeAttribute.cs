@@ -7,7 +7,8 @@ namespace CodeDocs.Identification
 {
     public class MinorChangeAttribute : ChangeAttribute
     {
-        public MinorChangeAttribute(string who, string what, DateTime when, string why) : base(who, what, when, why)
+        public MinorChangeAttribute(int year, int month, int day, string who, string what, string why)
+            : base(year, month, day, who, what, why)
         {
         }
     }
