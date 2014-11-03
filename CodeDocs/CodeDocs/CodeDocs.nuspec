@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>codedocs</id>
+    <version>0.0.1</version>
+    <authors>Randy Skopecek</authors>
+    <description>Code-based documentation (MIT Licensed)</description>
+    <language>en-US</language>
+    <projectUrl>https://github.com/rskopecek/CodeDocs</projectUrl>
+    <licenseUrl>https://github.com/rskopecek/CodeDocs/blob/master/LICENSE</licenseUrl>
+  </metadata>
+</package>
