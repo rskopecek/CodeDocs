@@ -1,0 +1,27 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.IO" #>
+<#@ assembly name="$(TargetPath)" #>
+<#@ import namespace="CodeDocs" #>
+<#@ output extension=".cs" #>
+<#	
+	var items = CodeDocs.Definitions.All();
+	var tags = items.Tags();
+#>
+/*
+ *
+ *	System Generated via T4
+ *
+*/
+using System;
+
+namespace CodeDocs
+{
+<# foreach(var tag in tags) { #>
+
+	public interface I<#=tag#>{}
+<# } #>
+}

@@ -1,0 +1,77 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.IO" #>
+<#@ assembly name="$(TargetPath)" #>
+<#@ import namespace="CodeDocs" #>
+<#@ output extension=".cs" #>
+<#	
+	var items = CodeDocs.Definitions.All();
+
+	// Xml Documentation
+	var xmlSummary = @"/// <summary></summary>";
+	var xmlDetails = @"        /// <param name=""details"">The message to convey. Try to keep it short and to the point.</param>";
+	var xmlRisk = @"        /// <param name=""risk"">The level of risk identified for the context.</param>";
+	var xmlEffort = @"        /// <param name=""effort"">The assumed estimate of effort required.</param>";
+	var xmlTags = @"        /// <param name=""tags"">Comma separated list of tags for any use.  ("","" or "", "" supported)</param>";
+	var xmlUrls = @"        /// <param name=""urls"">One or more Urls that provide reference value (Ex. a link to how something should be refactored.  A link to an article that helped figure out how something should be done.)</param>";
+
+#>
+/*
+ *
+ *	System Generated via T4
+ *
+*/
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace CodeDocs
+{
+<# foreach(var item in items) { #>
+
+    /// <summary>
+    /// <#=item.Description#> (Default risk = <#=item.DefaultRisk#>)
+    /// </summary>
+	[AttributeUsage(AttributeTargets.All, AllowMultiple = true, Inherited = false)]
+    public partial class <#=item.Name#>Attribute : CodeBasedAttribute, <#=string.Join(", ", item.InterfaceNames())#>
+    {
+
+		public override Definition Definition {get { return Definitions.<#=item.Name#>; }}
+
+		<#=string.Join(Environment.NewLine, xmlSummary, xmlDetails, xmlRisk, xmlEffort, xmlTags, xmlUrls)#>
+		public <#=item.Name#>Attribute(string details, Risk risk = Risk.<#=item.DefaultRisk#>, Effort effort = Effort.<#=item.DefaultEffort#>, string tags = "", string[] urls = null) : base(details, risk, effort, tags, urls){}
+		
+		<#=string.Join(Environment.NewLine, xmlSummary, xmlDetails, xmlRisk, xmlTags)#>
+		public <#=item.Name#>Attribute(string details, Risk risk = Risk.<#=item.DefaultRisk#>, string tags = "") : base(details, risk, Effort.<#=item.DefaultEffort#>, tags, null){}
+		
+		<#=string.Join(Environment.NewLine, xmlSummary, xmlDetails, xmlRisk, xmlTags, xmlUrls)#>
+		public <#=item.Name#>Attribute(string details, Risk risk = Risk.<#=item.DefaultRisk#>, string tags = "", string[] urls = null) : base(details, risk, Effort.<#=item.DefaultEffort#>, tags, urls){}
+		
+		<#=string.Join(Environment.NewLine, xmlSummary, xmlDetails, xmlRisk, xmlUrls)#>
+		public <#=item.Name#>Attribute(string details, Risk risk = Risk.<#=item.DefaultRisk#>, string[] urls = null) : base(details, risk, Effort.<#=item.DefaultEffort#>, "", urls){}
+
+
+		<#=string.Join(Environment.NewLine, xmlSummary, xmlDetails, xmlTags, xmlRisk, xmlEffort, xmlUrls)#>
+		public <#=item.Name#>Attribute(string details, string tags = "", Risk risk = Risk.<#=item.DefaultRisk#>, Effort effort = Effort.<#=item.DefaultEffort#>, string[] urls = null) : base(details, risk, effort, tags, urls){}
+		
+		<#=string.Join(Environment.NewLine, xmlSummary, xmlDetails, xmlTags, xmlUrls)#>
+		public <#=item.Name#>Attribute(string details, string tags = "", string[] urls = null) : base(details, Risk.<#=item.DefaultRisk#>, Effort.<#=item.DefaultEffort#>, tags, urls){}
+
+
+		<#=string.Join(Environment.NewLine, xmlSummary, xmlDetails, xmlEffort, xmlTags, xmlUrls)#>
+		public <#=item.Name#>Attribute(string details, Effort effort = Effort.<#=item.DefaultEffort#>, string tags = "", string[] urls = null) : base(details, Risk.<#=item.DefaultRisk#>, effort, tags, urls){}
+		
+		<#=string.Join(Environment.NewLine, xmlSummary, xmlDetails, xmlEffort, xmlUrls)#>
+		public <#=item.Name#>Attribute(string details, Effort effort = Effort.<#=item.DefaultEffort#>, string[] urls = null) : base(details, Risk.<#=item.DefaultRisk#>, effort, "", urls){}
+
+
+		<#=string.Join(Environment.NewLine, xmlSummary, xmlDetails, xmlUrls)#>
+		public <#=item.Name#>Attribute(string details, string[] urls = null) : base(details, Risk.<#=item.DefaultRisk#>, Effort.<#=item.DefaultEffort#>, "", urls){}
+    
+	}
+<# } #>
+}

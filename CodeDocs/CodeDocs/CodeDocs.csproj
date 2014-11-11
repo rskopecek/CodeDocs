@@ -35,27 +35,53 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
+    <None Include="T4\Attributes\AttributeGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AttributeGenerator.cs</LastGenOutput>
+    </None>
     <None Include="CodeDocs.nuspec" />
+    <None Include="T4\Definitions\Definitions.json">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Definitions.tt</DependentUpon>
+    </None>
+    <None Include="T4\Definitions\Definitions.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Definitions.json</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="T4\Interfaces\InterfaceGenerator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>InterfaceGenerator.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="About\FeatureAttribute.cs" />
-    <Compile Include="Comments\CodeBasedCommentAttribute.cs" />
-    <Compile Include="Comments\HackAttribute.cs" />
-    <Compile Include="Comments\LocationAttribute.cs" />
-    <Compile Include="Comments\NamingAttribute.cs" />
-    <Compile Include="Comments\PurposeAttribute.cs" />
-    <Compile Include="Comments\ReadabilityAttribute.cs" />
-    <Compile Include="Comments\RefactorAttribute.cs" />
-    <Compile Include="Comments\TestAttribute.cs" />
-    <Compile Include="Comments\TodoAttribute.cs" />
-    <Compile Include="Comments\WhenAttribute.cs" />
-    <Compile Include="Hello.cs" />
-    <Compile Include="About\DocsAttribute.cs" />
-    <Compile Include="Change\ChangeAttribute.cs" />
-    <Compile Include="Change\MajorChangeAttribute.cs" />
-    <Compile Include="Change\MinorChangeAttribute.cs" />
+    <Compile Include="T4\Attributes\AttributeGenerator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AttributeGenerator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeBasedAttribute.cs" />
+    <Compile Include="Definition.cs" />
+    <Compile Include="Definitions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ConstantsAndEnums.cs" />
+    <Compile Include="ReviewedAttribute.cs" />
+    <Compile Include="T4\Interfaces\InterfaceGenerator.cs">
+      <DependentUpon>InterfaceGenerator.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
