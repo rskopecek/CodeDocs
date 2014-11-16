@@ -71,14 +71,12 @@
     </Compile>
     <Compile Include="v2\CodeDocsAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="v2\Custom\ChangeAttribute.cs" />
     <Compile Include="v2\ICodeDocsAttribute.cs" />
     <Compile Include="v2\InterfaceGenerator.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>InterfaceGenerator.tt</DependentUpon>
     </Compile>
-    <Compile Include="v2\Custom\ReviewedAttribute.cs" />
     <Compile Include="v2\IQualityEvaluator.cs" />
     <Compile Include="v2\QualityEvaluator.cs" />
   </ItemGroup>

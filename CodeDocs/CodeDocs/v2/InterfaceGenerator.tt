@@ -17,7 +17,7 @@
 */
 using System;
 
-namespace CodeDocs
+namespace CodeDocs.v2
 {
 <# foreach(var tag in tags) { #>
 

@@ -5,7 +5,7 @@
 */
 using System;
 
-namespace CodeDocs
+namespace CodeDocs.v2
 {
 
 	public interface IDegredation{}
@@ -37,6 +37,8 @@ namespace CodeDocs
 	public interface IFeature{}
 
 	public interface IStandards{}
+
+	public interface IReview{}
 
 	public interface IFuture{}
 

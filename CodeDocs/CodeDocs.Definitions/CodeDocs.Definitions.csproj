@@ -50,6 +50,7 @@
     <Compile Include="v2\Definitions\3_Belonging\FeatureDefinition.cs" />
     <Compile Include="v2\Definitions\3_Belonging\MajorChangeDefinition.cs" />
     <Compile Include="v2\Definitions\3_Belonging\MinorChangeDefinition.cs" />
+    <Compile Include="v2\Definitions\3_Belonging\ReviewedDefinition.cs" />
     <Compile Include="v2\Definitions\4_Confidence\ClarificationDefinition.cs" />
     <Compile Include="v2\Definitions\4_Confidence\HackDefinition.cs" />
     <Compile Include="v2\Definitions\4_Confidence\PurposeDefinition.cs" />

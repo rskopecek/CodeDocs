@@ -20,7 +20,7 @@ namespace CodeDocs.Definitions.v2
                 Security, InSecure, Toxic, Consequence, DeadCode, Test,
 
                 // Belonging
-                Cite, Feature, MajorChange, MinorChange, Naming, Readability, Location, Standards,
+                Cite, Feature, MajorChange, MinorChange, Naming, Readability, Location, Standards, Reviewed,
 
                 // Confidence
                 Hack, Refactor, Clarification, Purpose, Future,
@@ -66,6 +66,7 @@ namespace CodeDocs.Definitions.v2
         public static readonly Definition Readability = new ReadabilityDefinition();
         public static readonly Definition Location = new LocationDefinition();
         public static readonly Definition Standards = new StandardsDefinition();
+        public static readonly Definition Reviewed = new ReviewedDefinition();
 
 
         // Confidence
