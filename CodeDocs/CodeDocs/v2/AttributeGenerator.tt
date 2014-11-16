@@ -1,0 +1,153 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ assembly name="$(SolutionDir)\CodeDocs.Definitions\bin\$(ConfigurationName)\CodeDocs.Definitions.dll" #>
+<#@ import namespace="CodeDocs.Definitions.v2" #>
+<#@ output extension=".cs" #>
+<#	
+	var items = Glossary.Definitions();
+
+	// Xml Documentation
+	var mergeString = Environment.NewLine;
+	var xmlSummary = @"/// <summary></summary>";
+	var xmlDate = @"        /// <param name=""yyyymmdd"">The date in 4 digit year, 2 digit month, 2 digit day in integer format (due to .net attribute limitations).</param>";
+	var xmlDetails = @"        /// <param name=""details"">The message to convey. Try to keep it short and to the point.</param>";
+	var xmlRisk = @"        /// <param name=""risk"">The level of risk identified for the context.</param>";
+	var xmlEffort = @"        /// <param name=""effort"">The assumed estimate of effort required.</param>";
+	var xmlTags = @"        /// <param name=""tags"">Comma separated list of tags for any use.  ("","" or "", "" supported)</param>";
+	var xmlUrls = @"        /// <param name=""urls"">One or more Urls that provide reference value (Ex. a link to how something should be refactored.  A link to an article that helped figure out how something should be done.)</param>";
+
+#>
+/*
+ *
+ *	System Generated via T4
+ *
+*/
+using System;
+using CodeDocs.Definitions.v2;
+
+namespace CodeDocs.v2
+{
+<# foreach(var item in items) { #>
+
+    /// <summary>
+    /// <#=item.Description#> (Default risk = <#=item.DefaultRisk#>, Default effort = <#=item.DefaultEffort#>)
+    /// </summary>
+	[AttributeUsage(Constants.AttributeScope, AllowMultiple = true, Inherited = false)]
+    public class <#=item.Name#>Attribute : CodeDocsAttribute, <#=string.Join(", ", item.InterfaceNames())#>
+    {
+
+		public override Definition Definition { get { return Glossary.<#=item.Name#>; }}
+
+		// Just Details
+
+		<#=string.Join(mergeString, xmlSummary, xmlDetails)#>
+		public <#=item.Name#>Attribute(string details) : base(details, null, null, "", null, null){}
+
+		<#=string.Join(mergeString, xmlSummary, xmlDetails, xmlDate)#>
+		public <#=item.Name#>Attribute(string details, int yyyymmdd) : base(details, null, null, "", null, yyyymmdd){}
+
+		// Focus on risk
+
+		<#=string.Join(mergeString, xmlSummary, xmlDetails, xmlRisk)#>
+		public <#=item.Name#>Attribute(string details, Risk risk) : base(details, risk, null, "", null, null){}
+
+		<#=string.Join(mergeString, xmlSummary, xmlDetails, xmlRisk, xmlEffort)#>
+		public <#=item.Name#>Attribute(string details, Risk risk, Effort effort) : base(details, risk, effort, "", null, null){}
+
+
+		<#=string.Join(mergeString, xmlSummary, xmlDetails, xmlRisk, xmlDate)#>
+		public <#=item.Name#>Attribute(string details, Risk risk, int yyyymmdd) : base(details, risk, null, "", null, yyyymmdd){}
+
+		<#=string.Join(mergeString, xmlSummary, xmlDetails, xmlRisk, xmlEffort, xmlDate)#>
+		public <#=item.Name#>Attribute(string details, Risk risk, Effort effort, int yyyymmdd) : base(details, risk, effort, "", null, yyyymmdd){}
+
+		// Focus on tags
+
+		<#=string.Join(mergeString, xmlSummary, xmlDetails, xmlTags)#>
+		public <#=item.Name#>Attribute(string details, string tags) : base(details, null, null, tags, null, null){}
+
+		<#=string.Join(mergeString, xmlSummary, xmlDetails, xmlRisk, xmlTags)#>
+		public <#=item.Name#>Attribute(string details, Risk risk, string tags) : base(details, risk, null, tags, null, null){}
+
+		<#=string.Join(mergeString, xmlSummary, xmlDetails, xmlRisk, xmlEffort, xmlTags)#>
+		public <#=item.Name#>Attribute(string details, Risk risk, Effort effort, string tags) : base(details, risk, effort, tags, null, null){}
+
+		<#=string.Join(mergeString, xmlSummary, xmlDetails, xmlTags, xmlUrls)#>
+		public <#=item.Name#>Attribute(string details, string tags, string[] urls) : base(details, null, null, tags, urls, null){}
+
+		// Add in date for tags
+
+		<#=string.Join(mergeString, xmlSummary, xmlDetails, xmlTags, xmlDate)#>
+		public <#=item.Name#>Attribute(string details, string tags, int yyyymmdd) : base(details, null, null, tags, null, yyyymmdd){}
+
+		<#=string.Join(mergeString, xmlSummary, xmlDetails, xmlRisk, xmlTags, xmlDate)#>
+		public <#=item.Name#>Attribute(string details, Risk risk, string tags, int yyyymmdd) : base(details, risk, null, tags, null, yyyymmdd){}
+
+		<#=string.Join(mergeString, xmlSummary, xmlDetails, xmlRisk, xmlEffort, xmlTags, xmlDate)#>
+		public <#=item.Name#>Attribute(string details, Risk risk, Effort effort, string tags, int yyyymmdd) : base(details, risk, effort, tags, null, yyyymmdd){}
+
+		<#=string.Join(mergeString, xmlSummary, xmlDetails, xmlTags, xmlUrls, xmlDate)#>
+		public <#=item.Name#>Attribute(string details, string tags, string[] urls, int yyyymmdd) : base(details, null, null, tags, urls, yyyymmdd){}
+
+		// Add in urls
+
+		<#=string.Join(mergeString, xmlSummary, xmlDetails, xmlUrls)#>
+		public <#=item.Name#>Attribute(string details, string[] urls) : base(details, null, null, "", urls, null){}
+
+		<#=string.Join(mergeString, xmlSummary, xmlDetails, xmlRisk, xmlUrls)#>
+		public <#=item.Name#>Attribute(string details, Risk risk, string[] urls) : base(details, risk, null, "", urls, null){}
+
+		<#=string.Join(mergeString, xmlSummary, xmlDetails, xmlRisk, xmlEffort, xmlUrls)#>
+		public <#=item.Name#>Attribute(string details, Risk risk, Effort effort, string[] urls) : base(details, risk, effort, "", urls, null){}
+
+
+		<#=string.Join(mergeString, xmlSummary, xmlDetails, xmlUrls, xmlDate)#>
+		public <#=item.Name#>Attribute(string details, string[] urls, int yyyymmdd) : base(details, null, null, "", urls, yyyymmdd){}
+
+		<#=string.Join(mergeString, xmlSummary, xmlDetails, xmlRisk, xmlUrls, xmlDate)#>
+		public <#=item.Name#>Attribute(string details, Risk risk, string[] urls, int yyyymmdd) : base(details, risk, null, "", urls, yyyymmdd){}
+
+		<#=string.Join(mergeString, xmlSummary, xmlDetails, xmlRisk, xmlEffort, xmlUrls, xmlDate)#>
+		public <#=item.Name#>Attribute(string details, Risk risk, Effort effort, string[] urls, int yyyymmdd) : base(details, risk, effort, "", urls, yyyymmdd){}
+
+		// Focus on effort
+
+		<#=string.Join(mergeString, xmlSummary, xmlDetails, xmlEffort)#>
+		public <#=item.Name#>Attribute(string details, Effort effort) : base(details, null, effort, "", null, null){}
+
+		<#=string.Join(mergeString, xmlSummary, xmlDetails, xmlEffort, xmlTags)#>
+		public <#=item.Name#>Attribute(string details, Effort effort, string tags) : base(details, null, effort, tags, null, null){}
+
+		<#=string.Join(mergeString, xmlSummary, xmlDetails, xmlEffort, xmlUrls)#>
+		public <#=item.Name#>Attribute(string details, Effort effort, string[] urls) : base(details, null, effort, "", urls, null){}
+
+		<#=string.Join(mergeString, xmlSummary, xmlDetails, xmlEffort, xmlTags, xmlUrls)#>
+		public <#=item.Name#>Attribute(string details, Effort effort, string tags, string[] urls) : base(details, null, effort, tags, urls, null){}
+
+
+		<#=string.Join(mergeString, xmlSummary, xmlDetails, xmlEffort, xmlDate)#>
+		public <#=item.Name#>Attribute(string details, Effort effort, int yyyymmdd) : base(details, null, effort, "", null, yyyymmdd){}
+
+		<#=string.Join(mergeString, xmlSummary, xmlDetails, xmlEffort, xmlTags, xmlDate)#>
+		public <#=item.Name#>Attribute(string details, Effort effort, string tags, int yyyymmdd) : base(details, null, effort, tags, null, yyyymmdd){}
+
+		<#=string.Join(mergeString, xmlSummary, xmlDetails, xmlEffort, xmlUrls, xmlDate)#>
+		public <#=item.Name#>Attribute(string details, Effort effort, string[] urls, int yyyymmdd) : base(details, null, effort, "", urls, yyyymmdd){}
+
+		<#=string.Join(mergeString, xmlSummary, xmlDetails, xmlEffort, xmlTags, xmlUrls, xmlDate)#>
+		public <#=item.Name#>Attribute(string details, Effort effort, string tags, string[] urls, int yyyymmdd) : base(details, null, effort, tags, urls, yyyymmdd){}
+
+		// Full tilt
+
+		<#=string.Join(mergeString, xmlSummary, xmlDetails, xmlRisk, xmlEffort, xmlTags, xmlUrls)#>
+		public <#=item.Name#>Attribute(string details, Risk risk, Effort effort, string tags, string[] urls) : base(details, risk, effort, tags, urls, null){}
+
+		<#=string.Join(mergeString, xmlSummary, xmlDetails, xmlRisk, xmlEffort, xmlTags, xmlUrls, xmlDate)#>
+		public <#=item.Name#>Attribute(string details, Risk risk, Effort effort, string tags, string[] urls, int yyyymmdd) : base(details, risk, effort, tags, urls, yyyymmdd){}
+
+	}
+<# } #>
+}

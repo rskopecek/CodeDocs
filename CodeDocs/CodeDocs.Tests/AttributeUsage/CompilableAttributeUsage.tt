@@ -1,0 +1,39 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ assembly name="$(SolutionDir)\CodeDocs.Definitions\bin\$(ConfigurationName)\CodeDocs.Definitions.dll" #>
+<#@ import namespace="CodeDocs.Definitions.v2" #>
+<#@ output extension=".cs" #>
+<#
+	var items = Glossary.Definitions();
+#>
+/*
+ *
+ *	System Generated via T4
+ *
+*/
+using System;
+using CodeDocs.v2;
+using CodeDocs.Definitions.v2;
+
+namespace CodeDocs.Tests.AttributeUsage
+{
+<# foreach(var item in items) { #>
+
+	[<#=item.Name#>("")] internal interface I<#=item.Name#>Example{}
+	[<#=item.Name#>("")] internal struct <#=item.Name#>StructExample{}
+	[<#=item.Name#>("")] internal class <#=item.Name#>Example : I<#=item.Name#>Example
+	{
+		[<#=item.Name#>("")] internal <#=item.Name#>Example() { Variable1 = "1"; Property1 = "1"; }
+		[<#=item.Name#>("")] private enum Enum1 {B};
+		[<#=item.Name#>("")] private readonly string Variable1;
+		[<#=item.Name#>("")] private string Property1 { get; set; }
+		[<#=item.Name#>("")] private Enum1 MethodParam1(Enum1 abc){return abc;}
+		[<#=item.Name#>("")] delegate bool Delegate1();
+		[<#=item.Name#>("")]event Delegate1 Event1;
+	}
+
+<# } #>
+}

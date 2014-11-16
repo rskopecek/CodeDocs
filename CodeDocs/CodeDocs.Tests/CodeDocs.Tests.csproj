@@ -49,16 +49,36 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="AttributeUsage\CompilableAttributeUsage.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CompilableAttributeUsage.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AttributeUsage\ConstructorUsage.cs" />
+    <Compile Include="AttributeUsage\Scenario.cs" />
+    <Compile Include="HelperFunctions\ToTagsTests.cs" />
+    <Compile Include="HelperFunctions\ToDate_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="AttributeUsage\CompilableAttributeUsage.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CompilableAttributeUsage.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CodeDocs.Definitions\CodeDocs.Definitions.csproj">
+      <Project>{1d48b694-8863-47d3-8483-a4eb05f0c19a}</Project>
+      <Name>CodeDocs.Definitions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CodeDocs\CodeDocs.csproj">
       <Project>{517e2d06-0782-485a-902e-3ffea2cd5741}</Project>
       <Name>CodeDocs</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
