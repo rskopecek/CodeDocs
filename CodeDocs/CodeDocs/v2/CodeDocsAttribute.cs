@@ -12,13 +12,15 @@ namespace CodeDocs.v2
     public abstract class CodeDocsAttribute : CodeDocsBaseAttribute, ICodeDocsAttribute
     {
 
-        protected CodeDocsAttribute(string details, Risk? risk, Effort? effort, string tags, string[] urls, int? yyyymmdd)
+        protected CodeDocsAttribute(string details, Risk? risk, Effort? effort, int? yyyymmdd,
+            params string[] tagsAndReferences)
         {
             Details = details;
             Risk = risk;
             Effort = effort;
-            Tags = tags.ToTags();
-            Urls = urls;
+            Tags = tagsAndReferences.Where(q => !Uri.IsWellFormedUriString(q, UriKind.RelativeOrAbsolute)).ToArray();
+            References =
+                tagsAndReferences.Where(q => Uri.IsWellFormedUriString(q, UriKind.RelativeOrAbsolute)).ToArray();
             Date = yyyymmdd.ToDate();
         }
 
@@ -35,7 +37,7 @@ namespace CodeDocs.v2
 
         public string[] Tags { get; private set; }
 
-        public string[] Urls { get; private set; }
+        public string[] References { get; private set; }
 
 
         /// <summary>
@@ -96,4 +98,5 @@ namespace CodeDocs.v2
             return evaluator.GetMetaRiskOverride(this) ?? QualityEvaluator.Default.GetDefaultMetaRisk(this);
         }
     }
+
 }

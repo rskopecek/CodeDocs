@@ -20,7 +20,7 @@ namespace CodeDocs.v2
 
         string[] Tags { get;  }
 
-        string[] Urls { get; }
+        string[] References { get; }
 
         Risk GetRisk();
 

@@ -55,8 +55,6 @@
       <DependentUpon>CompilableAttributeUsage.tt</DependentUpon>
     </Compile>
     <Compile Include="AttributeUsage\ConstructorUsage.cs" />
-    <Compile Include="AttributeUsage\Scenario.cs" />
-    <Compile Include="HelperFunctions\ToTagsTests.cs" />
     <Compile Include="HelperFunctions\ToDate_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

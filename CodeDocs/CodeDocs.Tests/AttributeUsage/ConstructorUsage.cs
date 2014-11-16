@@ -9,31 +9,24 @@ using CodeDocs.Definitions.v2;
 namespace CodeDocs.Tests.AttributeUsage
 {
 
-    //[Bug("")]
-    //[Bug("", 1)]
-    //[Bug("", Risk.None)]
-    //[Bug("", Risk.None, Effort.None)]
-    //[Bug("", Risk.None, 1)]
-    //[Bug("", Risk.None, Effort.None, 1)]
-    //[Bug("", "")]
-    //[Bug("", Risk.None, "")]
-    //[Bug("", Risk.None, Effort.None, "")]
-    //[Bug("", "", new[] {""})]
-    //[Bug("", "", 1)]
-    //[Bug("", Risk.None, "", 1)]
-    //[Bug("", Risk.None, Effort.None, "", 1)]
-    //[Bug("", "", new[] {""}, 1)]
-    //[Bug("", new[] {""})]
-    //[Bug("", Risk.None, new[] {""})]
-    //[Bug("", Risk.None, Effort.None, new[] {""})]
-    //[Bug("", new[] {""}, 1)]
-    //[Bug("", Risk.None, new[] {""}, 1)]
-    //[Bug("", Risk.None, Effort.None, new[] {""}, 1)]
-    //[Bug("", Effort.None)]
-    //[Bug("", Effort.None, "")]
-    //[Bug("", Effort.None, new[] { ""})]
-
+    [Bug("comment")]
+    [Bug("comment", Risk.None)]
+    [Bug("comment", Effort.None)]
+    [Bug("comment", 20010203)]
+    [Bug("comment", Risk.None, Effort.None)]
+    [Bug("comment", Risk.None, 20010203)]
+    [Bug("comment", Effort.None, 20010203)]
+    [Bug("comment", Risk.None, Effort.None, 20010203)]
+    [Bug("comment", "tag", "http://stackoverflow.com")]
+    [Bug("comment", Risk.None, "tag", "http://stackoverflow.com")]
+    [Bug("comment", Effort.None, "tag", "http://stackoverflow.com")]
+    [Bug("comment", 20010203, "tag", "http://stackoverflow.com")]
+    [Bug("comment", Risk.None, Effort.None, "tag", "http://stackoverflow.com")]
+    [Bug("comment", Risk.None, 20010203, "tag", "http://stackoverflow.com")]
+    [Bug("comment", Effort.None, 20010203, "tag", "http://stackoverflow.com")]
+    [Bug("comment", Risk.None, Effort.None, 20010203, "tag", "http://stackoverflow.com")]
     public class ConstructorUsage
     {
     }
+
 }
