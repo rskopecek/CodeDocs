@@ -12,26 +12,42 @@ namespace CodeDocs
 	// Risks
 <# foreach(var risk in glossary.Risks) { #>
 
+    /// <summary>
+    /// Interface used soley for polymorphic routing.  Interface risk tags are attached to definitions and their attributes.
+    /// </summary>
 	public interface I<#=risk.Name#>RiskTag{}
 <# } #>
 
 	// Efforts
 <# foreach(var effort in glossary.Efforts) { #>
 
+    /// <summary>
+    /// Interface used soley for polymorphic routing.  Interface effort tags are attached to definitions and their attributes.
+    /// </summary>
 	public interface I<#=effort.Name#>EffortTag{}
 <# } #>
 
 	// Groups
 <# foreach(var grp in glossary.Groups) { #>
 
+    /// <summary>
+    /// Interface used soley for polymorphic routing.  Interface groups are attached to definitions and their attributes.
+    /// </summary>
 	public interface I<#=grp.Name#>Group{}
 <# } #>
 
 
 	// Tags
+
+    /// <summary>
+    /// Interface used soley for polymorphic routing.  Interface definition tags are attached to definitions and their attributes.
+    /// </summary>
 	public interface IOnePerContextTag{}
 <# foreach(var tag in tags) { #>
 
+    /// <summary>
+    /// Interface used soley for polymorphic routing.  Interface definition tags are attached to definitions and their attributes.
+    /// </summary>
 	public interface I<#=tag#>Tag{}
 <# } #>
 }

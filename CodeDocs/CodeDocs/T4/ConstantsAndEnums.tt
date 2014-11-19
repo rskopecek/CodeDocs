@@ -14,16 +14,25 @@ using System.Text;
 namespace CodeDocs
 {
 
+	/// <summary>
+	/// An expression of risk relative to the context it's being applied to
+	/// </summary>
 	public enum Risk
 	{
 		<#=string.Join(nextLineWithComma, glossary.Risks.Select(i=> i.Name + " = " + i.Value))#>
 	}
 
+	/// <summary>
+	/// An expression of effort required to address the subject as it relates to the context it's being applied to
+	/// </summary>
 	public enum Effort
 	{
 		<#=string.Join(nextLineWithComma, glossary.Efforts.Select(i=> i.Name + " = " + i.Value))#>
 	}
 
+	/// <summary>
+	/// Generic tags as defined with the definitions to provide cross-cutting searching capabilities
+	/// </summary>
 	public enum Tag
 	{
 		<#=string.Join(nextLineWithComma, tags)#>
@@ -31,10 +40,17 @@ namespace CodeDocs
 
 	public static partial class Constants
 	{
+
+		/// <summary>
+		/// Default scope applied to all CodeDoc attributes
+		/// </summary>
 		public const AttributeTargets Scope = <#= string.Join(" | ", glossary.Scope.Select(i=> "AttributeTargets." + i))#>;
 	
 		#region Enum.ToName()
 
+		/// <summary>
+		/// Provides the string based name of the risk enum value provided
+		/// </summary>
 		public static string ToName(this Risk risk)
 		{
 			switch(risk)
@@ -46,6 +62,9 @@ namespace CodeDocs
 			}
 		}
 
+		/// <summary>
+		/// Provides the string based name of the effort enum value provided
+		/// </summary>
 		public static string ToName(this Effort effort)
 		{
 			switch(effort)
@@ -57,6 +76,9 @@ namespace CodeDocs
 			}
 		}
 
+		/// <summary>
+		/// Provides the string based name of the tag enum value provide
+		/// </summary>
 		public static string ToName(this Tag tag)
 		{
 			switch(tag)

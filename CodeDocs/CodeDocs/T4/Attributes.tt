@@ -28,6 +28,9 @@ namespace CodeDocs
     public sealed class <#=item.Id#>Attribute : CodeDocsAttribute, I<#=grp.Name#>Group, <#=string.Join(", ", item.InterfaceNames())#>
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.<#=item.Id#>; }}
 
 		<#=string.Join(mergeString, xmlSummary, xmlDetails, xmlTagsAndReferences)#>

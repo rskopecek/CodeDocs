@@ -48,7 +48,7 @@
     <None Include="glossary.json" />
     <None Include="T4\Glossary.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Glossary.cs</LastGenOutput>
+      <LastGenOutput>Glossary.generated.cs</LastGenOutput>
     </None>
     <None Include="T4\Glossary.ttinclude">
       <LastGenOutput>Glossary1.cs</LastGenOutput>
@@ -99,7 +99,7 @@
     <Compile Include="CI00002\TodoAttribute.cs" />
     <Compile Include="CI00002\WhenAttribute.cs" />
     <Compile Include="Glue\ICodeDocsAttribute.cs" />
-    <Compile Include="T4\Glossary.cs">
+    <Compile Include="T4\Glossary.generated.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Glossary.tt</DependentUpon>
@@ -116,9 +116,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="logo.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">

@@ -7,6 +7,9 @@ using System.Text;
 namespace CodeDocs
 {
 
+	/// <summary>
+	/// An expression of risk relative to the context it's being applied to
+	/// </summary>
 	public enum Risk
 	{
 		None = 0,
@@ -16,6 +19,9 @@ namespace CodeDocs
 		Extreme = 144
 	}
 
+	/// <summary>
+	/// An expression of effort required to address the subject as it relates to the context it's being applied to
+	/// </summary>
 	public enum Effort
 	{
 		None = 0,
@@ -27,6 +33,9 @@ namespace CodeDocs
 		Unknown = 144
 	}
 
+	/// <summary>
+	/// Generic tags as defined with the definitions to provide cross-cutting searching capabilities
+	/// </summary>
 	public enum Tag
 	{
 		Degredation,
@@ -61,10 +70,17 @@ namespace CodeDocs
 
 	public static partial class Constants
 	{
+
+		/// <summary>
+		/// Default scope applied to all CodeDoc attributes
+		/// </summary>
 		public const AttributeTargets Scope = AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Interface | AttributeTargets.Enum | AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Delegate | AttributeTargets.Event | AttributeTargets.Constructor | AttributeTargets.Method;
 	
 		#region Enum.ToName()
 
+		/// <summary>
+		/// Provides the string based name of the risk enum value provided
+		/// </summary>
 		public static string ToName(this Risk risk)
 		{
 			switch(risk)
@@ -78,6 +94,9 @@ namespace CodeDocs
 			}
 		}
 
+		/// <summary>
+		/// Provides the string based name of the effort enum value provided
+		/// </summary>
 		public static string ToName(this Effort effort)
 		{
 			switch(effort)
@@ -93,6 +112,9 @@ namespace CodeDocs
 			}
 		}
 
+		/// <summary>
+		/// Provides the string based name of the tag enum value provide
+		/// </summary>
 		public static string ToName(this Tag tag)
 		{
 			switch(tag)

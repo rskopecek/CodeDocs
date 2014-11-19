@@ -14,6 +14,9 @@ namespace CodeDocs
     public sealed class BugAttribute : CodeDocsAttribute, IFunctionalGroup, IDegredationTag, IExtremeRiskTag, IUnknownEffortTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.Bug; }}
 
 		/// <summary></summary>
@@ -77,6 +80,9 @@ namespace CodeDocs
     public sealed class MajorFixAttribute : CodeDocsAttribute, IFunctionalGroup, IChangeTag, IMajorTag, IFixTag, INoneRiskTag, INoneEffortTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.MajorFix; }}
 
 		/// <summary></summary>
@@ -140,6 +146,9 @@ namespace CodeDocs
     public sealed class MinorFixAttribute : CodeDocsAttribute, IFunctionalGroup, IChangeTag, IMinorTag, IFixTag, INoneRiskTag, INoneEffortTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.MinorFix; }}
 
 		/// <summary></summary>
@@ -203,6 +212,9 @@ namespace CodeDocs
     public sealed class SlowAttribute : CodeDocsAttribute, IFunctionalGroup, IPerformanceTag, IDegredationTag, IModerateRiskTag, IMediumEffortTag, IOnePerContextTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.Slow; }}
 
 		/// <summary></summary>
@@ -266,6 +278,9 @@ namespace CodeDocs
     public sealed class TodoAttribute : CodeDocsAttribute, IFunctionalGroup, IWorkTag, IDegredationTag, IExtremeRiskTag, IMediumEffortTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.Todo; }}
 
 		/// <summary></summary>
@@ -332,6 +347,9 @@ namespace CodeDocs
     public sealed class ConsequenceAttribute : CodeDocsAttribute, ISafetyGroup, IConsequenceTag, IModerateRiskTag, IUnknownEffortTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.Consequence; }}
 
 		/// <summary></summary>
@@ -395,6 +413,9 @@ namespace CodeDocs
     public sealed class DeadCodeAttribute : CodeDocsAttribute, ISafetyGroup, IDeadCodeTag, IConsequenceTag, ILowRiskTag, IVerySmallEffortTag, IOnePerContextTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.DeadCode; }}
 
 		/// <summary></summary>
@@ -458,6 +479,9 @@ namespace CodeDocs
     public sealed class SecurityAttribute : CodeDocsAttribute, ISafetyGroup, ISecurityTag, INoneRiskTag, INoneEffortTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.Security; }}
 
 		/// <summary></summary>
@@ -521,6 +545,9 @@ namespace CodeDocs
     public sealed class InsecureAttribute : CodeDocsAttribute, ISafetyGroup, ISecurityTag, IInSecureTag, IDegredationTag, IExtremeRiskTag, IUnknownEffortTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.Insecure; }}
 
 		/// <summary></summary>
@@ -584,6 +611,9 @@ namespace CodeDocs
     public sealed class TestAttribute : CodeDocsAttribute, ISafetyGroup, IDegredationTag, IExtremeRiskTag, ISmallEffortTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.Test; }}
 
 		/// <summary></summary>
@@ -647,6 +677,9 @@ namespace CodeDocs
     public sealed class ToxicAttribute : CodeDocsAttribute, ISafetyGroup, IToxicTag, IDegredationTag, IExtremeRiskTag, IUnknownEffortTag, IOnePerContextTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.Toxic; }}
 
 		/// <summary></summary>
@@ -713,6 +746,9 @@ namespace CodeDocs
     public sealed class CiteAttribute : CodeDocsAttribute, IBelongingGroup, IMeaningTag, INoneRiskTag, INoneEffortTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.Cite; }}
 
 		/// <summary></summary>
@@ -776,6 +812,9 @@ namespace CodeDocs
     public sealed class FeatureAttribute : CodeDocsAttribute, IBelongingGroup, IFeatureTag, INoneRiskTag, INoneEffortTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.Feature; }}
 
 		/// <summary></summary>
@@ -839,6 +878,9 @@ namespace CodeDocs
     public sealed class LocationAttribute : CodeDocsAttribute, IBelongingGroup, IMeaningTag, ILowRiskTag, IUnknownEffortTag, IOnePerContextTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.Location; }}
 
 		/// <summary></summary>
@@ -902,6 +944,9 @@ namespace CodeDocs
     public sealed class MajorChangeAttribute : CodeDocsAttribute, IBelongingGroup, IChangeTag, IMajorTag, INoneRiskTag, INoneEffortTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.MajorChange; }}
 
 		/// <summary></summary>
@@ -965,6 +1010,9 @@ namespace CodeDocs
     public sealed class MinorChangeAttribute : CodeDocsAttribute, IBelongingGroup, IChangeTag, IMinorTag, INoneRiskTag, INoneEffortTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.MinorChange; }}
 
 		/// <summary></summary>
@@ -1028,6 +1076,9 @@ namespace CodeDocs
     public sealed class NamingAttribute : CodeDocsAttribute, IBelongingGroup, IMeaningTag, ILowRiskTag, ISmallEffortTag, IOnePerContextTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.Naming; }}
 
 		/// <summary></summary>
@@ -1091,6 +1142,9 @@ namespace CodeDocs
     public sealed class ReadabilityAttribute : CodeDocsAttribute, IBelongingGroup, IMeaningTag, ILowRiskTag, ISmallEffortTag, IOnePerContextTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.Readability; }}
 
 		/// <summary></summary>
@@ -1154,6 +1208,9 @@ namespace CodeDocs
     public sealed class ReviewedAttribute : CodeDocsAttribute, IBelongingGroup, IReviewTag, INoneRiskTag, INoneEffortTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.Reviewed; }}
 
 		/// <summary></summary>
@@ -1217,6 +1274,9 @@ namespace CodeDocs
     public sealed class StandardsAttribute : CodeDocsAttribute, IBelongingGroup, IStandardsTag, ILowRiskTag, IVerySmallEffortTag, IOnePerContextTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.Standards; }}
 
 		/// <summary></summary>
@@ -1283,6 +1343,9 @@ namespace CodeDocs
     public sealed class ClarificationAttribute : CodeDocsAttribute, IConfidenceGroup, IMeaningTag, ILowRiskTag, IVerySmallEffortTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.Clarification; }}
 
 		/// <summary></summary>
@@ -1346,6 +1409,9 @@ namespace CodeDocs
     public sealed class FutureAttribute : CodeDocsAttribute, IConfidenceGroup, IWorkTag, IFutureTag, IYAGNITag, ILowRiskTag, INoneEffortTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.Future; }}
 
 		/// <summary></summary>
@@ -1409,6 +1475,9 @@ namespace CodeDocs
     public sealed class HackAttribute : CodeDocsAttribute, IConfidenceGroup, IDegredationTag, IModerateRiskTag, IUnknownEffortTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.Hack; }}
 
 		/// <summary></summary>
@@ -1472,6 +1541,9 @@ namespace CodeDocs
     public sealed class PurposeAttribute : CodeDocsAttribute, IConfidenceGroup, IMeaningTag, ISRPTag, IModerateRiskTag, IMediumEffortTag, IOnePerContextTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.Purpose; }}
 
 		/// <summary></summary>
@@ -1535,6 +1607,9 @@ namespace CodeDocs
     public sealed class RefactorAttribute : CodeDocsAttribute, IConfidenceGroup, IDegredationTag, ILowRiskTag, IUnknownEffortTag, IOnePerContextTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.Refactor; }}
 
 		/// <summary></summary>
@@ -1601,6 +1676,9 @@ namespace CodeDocs
     public sealed class DependancyInversionAttribute : CodeDocsAttribute, IPrinciplesGroup, IPrinciplesTag, ISOLIDTag, IDIPTag, IModerateRiskTag, IMediumEffortTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.DependancyInversion; }}
 
 		/// <summary></summary>
@@ -1664,6 +1742,9 @@ namespace CodeDocs
     public sealed class DontRepeatYourselfAttribute : CodeDocsAttribute, IPrinciplesGroup, IPrinciplesTag, ISOLIDTag, IDRYTag, IModerateRiskTag, IMediumEffortTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.DontRepeatYourself; }}
 
 		/// <summary></summary>
@@ -1727,6 +1808,9 @@ namespace CodeDocs
     public sealed class InterfaceSegregationAttribute : CodeDocsAttribute, IPrinciplesGroup, IPrinciplesTag, ISOLIDTag, IISPTag, IModerateRiskTag, IMediumEffortTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.InterfaceSegregation; }}
 
 		/// <summary></summary>
@@ -1790,6 +1874,9 @@ namespace CodeDocs
     public sealed class LeastKnowledgeAttribute : CodeDocsAttribute, IPrinciplesGroup, IPrinciplesTag, ILoDTag, IModerateRiskTag, IMediumEffortTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.LeastKnowledge; }}
 
 		/// <summary></summary>
@@ -1853,6 +1940,9 @@ namespace CodeDocs
     public sealed class LiskovSubstitutionAttribute : CodeDocsAttribute, IPrinciplesGroup, IPrinciplesTag, ISOLIDTag, ILSPTag, IModerateRiskTag, IMediumEffortTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.LiskovSubstitution; }}
 
 		/// <summary></summary>
@@ -1916,6 +2006,9 @@ namespace CodeDocs
     public sealed class OccamsRazorAttribute : CodeDocsAttribute, IPrinciplesGroup, IPrinciplesTag, IModerateRiskTag, IMediumEffortTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.OccamsRazor; }}
 
 		/// <summary></summary>
@@ -1979,6 +2072,9 @@ namespace CodeDocs
     public sealed class OpenClosedAttribute : CodeDocsAttribute, IPrinciplesGroup, IPrinciplesTag, ISOLIDTag, IOCPTag, IModerateRiskTag, IMediumEffortTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.OpenClosed; }}
 
 		/// <summary></summary>
@@ -2042,6 +2138,9 @@ namespace CodeDocs
     public sealed class SeparationOfConcernsAttribute : CodeDocsAttribute, IPrinciplesGroup, IPrinciplesTag, ISoCTag, IModerateRiskTag, IMediumEffortTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.SeparationOfConcerns; }}
 
 		/// <summary></summary>
@@ -2105,6 +2204,9 @@ namespace CodeDocs
     public sealed class SingleResponsibilityAttribute : CodeDocsAttribute, IPrinciplesGroup, IPrinciplesTag, ISOLIDTag, ISRPTag, IModerateRiskTag, IMediumEffortTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.SingleResponsibility; }}
 
 		/// <summary></summary>
@@ -2168,6 +2270,9 @@ namespace CodeDocs
     public sealed class YouArentGonnaNeedItAttribute : CodeDocsAttribute, IPrinciplesGroup, IPrinciplesTag, IYAGNITag, IModerateRiskTag, IMediumEffortTag
     {
 
+		/// <summary>
+		/// Access to the definition used to generate this attribute (provided by the CodeDocs.Glossary static object)
+		/// </summary>
 		public override IDefinition Definition { get { return Glossary.YouArentGonnaNeedIt; }}
 
 		/// <summary></summary>

@@ -9,19 +9,49 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace CodeDocs
+namespace CodeDocs.Definitions
 {
 
 <#foreach(var grp in glossary.Groups) { #>
 <#	foreach(var item in grp.Definitions) { #>
+    /// <summary>
+    /// Definition class for <#=item.Id#>
+    /// </summary>
 	public sealed class <#=item.Id#>Definition : IDefinition, I<#=grp.Name#>Group, <#=string.Join(", ", item.InterfaceNames())#>
 	{
+		/// <summary>
+		/// Name of the primary group this definition is organized into
+		/// </summary>
 		public string Group { get { return "<#=grp.Name#>";} }
+
+		/// <summary>
+		/// Name of the definition
+		/// </summary>
 		public string Name { get { return "<#=item.Name#>"; } }
+
+		/// <summary>
+		/// Decription of the definition (ie the "definition" itself)
+		/// </summary>
 		public string Description { get { return "<#=item.Description#>"; } }
+
+		/// <summary>
+		/// Default risk used when the attribute is applied and not overridden via use or IQualityEvaluator
+		/// </summary>
 		public Risk DefaultRisk { get { return Risk.<#=item.Risk#>; } }
+
+		/// <summary>
+		/// Default effort used when the attribute is applied and not overridden via use or IQualityEvaluator
+		/// </summary>
 		public Effort DefaultEffort { get { return Effort.<#=item.Effort#>; } }
+
+		/// <summary>
+		/// Set of tags used to aid in describing the definition.  Also applied to the attribute as an interface for polymorphic routing.
+		/// </summary>
 		public Tag[] Tags { get { return new[]{ <#=string.Join(", ", item.Tags.Select(i=> "Tag." + i))#> }; } }
+
+		/// <summary>
+		/// Identifies if an attribute of this type can only be attached one at a time to a particular context.
+		/// </summary>
 		public bool OnePerContext { get { return <#=item.OnePerContext.ToString().ToLower()#>; } }
 	}
 
