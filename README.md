@@ -20,7 +20,7 @@ PM> Install-Package codedocs -Pre
 
 ###Available attributes
 
-As defined in the [definitions.json](https://github.com/rskopecek/CodeDocs/blob/master/CodeDocs/CodeDocs/glossary.json)
+As defined in the [glossary.json](https://github.com/rskopecek/CodeDocs/blob/master/CodeDocs/CodeDocs/glossary.json)
 
 Bug, MajorFix, MinorFix, Slow, Todo, Consequence, DeadCode,
 Security, Insecure, Test, Toxic, Cite, Feature, Location,
