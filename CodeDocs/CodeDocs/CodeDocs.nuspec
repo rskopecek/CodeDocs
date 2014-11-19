@@ -8,6 +8,6 @@
     <language>en-US</language>
     <projectUrl>https://github.com/rskopecek/CodeDocs</projectUrl>
     <licenseUrl>https://github.com/rskopecek/CodeDocs/blob/master/LICENSE</licenseUrl>
-    <file src="readme.txt" target="" />
+    <iconUrl>https://raw.githubusercontent.com/rskopecek/CodeDocs/master/CodeDocs/CodeDocs/logo.jpg</iconUrl>
   </metadata>
 </package>
