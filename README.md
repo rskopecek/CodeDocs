@@ -2,6 +2,14 @@ CodeDocs
 ========
 Code-based documentation and risk management (Code-quality metadata)
 
+Getting Started
+---------------
+
+Install from [NuGet](https://www.nuget.org/packages/CodeDocs):
+```
+PM> Install-Package codedocs -Pre
+```
+
 ###Why?
 
 * **Tokens (Code-based comments)**. Developers use tokens (ex "//token: message") to leave little hints about things which are only available in the IDE.  They are also restricted to only a key/message pair.
