@@ -32,6 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\CodeDocs.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
@@ -118,7 +119,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.jpg" />
-    <Content Include="readme.txt" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
