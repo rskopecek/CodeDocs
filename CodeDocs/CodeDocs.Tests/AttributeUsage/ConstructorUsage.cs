@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using CodeDocs.v2;
-using CodeDocs.Definitions.v2;
 
 namespace CodeDocs.Tests.AttributeUsage
 {

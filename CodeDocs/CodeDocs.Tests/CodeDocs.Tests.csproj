@@ -63,13 +63,12 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>CompilableAttributeUsage.cs</LastGenOutput>
     </None>
+    <None Include="AttributeUsage\Glossary.ttinclude">
+      <LastGenOutput>Glossary1.cs</LastGenOutput>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CodeDocs.Definitions\CodeDocs.Definitions.csproj">
-      <Project>{1d48b694-8863-47d3-8483-a4eb05f0c19a}</Project>
-      <Name>CodeDocs.Definitions</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CodeDocs\CodeDocs.csproj">
       <Project>{517e2d06-0782-485a-902e-3ffea2cd5741}</Project>
       <Name>CodeDocs</Name>

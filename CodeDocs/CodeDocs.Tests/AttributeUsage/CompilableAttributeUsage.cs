@@ -1,11 +1,6 @@
-﻿/*
- *
- *	System Generated via T4
- *
-*/
+﻿
 using System;
-using CodeDocs.v2;
-using CodeDocs.Definitions.v2;
+using CodeDocs;
 
 namespace CodeDocs.Tests.AttributeUsage
 {
@@ -80,48 +75,6 @@ namespace CodeDocs.Tests.AttributeUsage
 	}
 
 
-	[Security("")] internal interface ISecurityExample{}
-	[Security("")] internal struct SecurityStructExample{}
-	[Security("")] internal class SecurityExample : ISecurityExample
-	{
-		[Security("")] internal SecurityExample() { Variable1 = "1"; Property1 = "1"; }
-		[Security("")] private enum Enum1 {B};
-		[Security("")] private readonly string Variable1;
-		[Security("")] private string Property1 { get; set; }
-		[Security("")] private Enum1 MethodParam1(Enum1 abc){return abc;}
-		[Security("")] delegate bool Delegate1();
-		[Security("")]event Delegate1 Event1;
-	}
-
-
-	[InSecure("")] internal interface IInSecureExample{}
-	[InSecure("")] internal struct InSecureStructExample{}
-	[InSecure("")] internal class InSecureExample : IInSecureExample
-	{
-		[InSecure("")] internal InSecureExample() { Variable1 = "1"; Property1 = "1"; }
-		[InSecure("")] private enum Enum1 {B};
-		[InSecure("")] private readonly string Variable1;
-		[InSecure("")] private string Property1 { get; set; }
-		[InSecure("")] private Enum1 MethodParam1(Enum1 abc){return abc;}
-		[InSecure("")] delegate bool Delegate1();
-		[InSecure("")]event Delegate1 Event1;
-	}
-
-
-	[Toxic("")] internal interface IToxicExample{}
-	[Toxic("")] internal struct ToxicStructExample{}
-	[Toxic("")] internal class ToxicExample : IToxicExample
-	{
-		[Toxic("")] internal ToxicExample() { Variable1 = "1"; Property1 = "1"; }
-		[Toxic("")] private enum Enum1 {B};
-		[Toxic("")] private readonly string Variable1;
-		[Toxic("")] private string Property1 { get; set; }
-		[Toxic("")] private Enum1 MethodParam1(Enum1 abc){return abc;}
-		[Toxic("")] delegate bool Delegate1();
-		[Toxic("")]event Delegate1 Event1;
-	}
-
-
 	[Consequence("")] internal interface IConsequenceExample{}
 	[Consequence("")] internal struct ConsequenceStructExample{}
 	[Consequence("")] internal class ConsequenceExample : IConsequenceExample
@@ -150,6 +103,34 @@ namespace CodeDocs.Tests.AttributeUsage
 	}
 
 
+	[Security("")] internal interface ISecurityExample{}
+	[Security("")] internal struct SecurityStructExample{}
+	[Security("")] internal class SecurityExample : ISecurityExample
+	{
+		[Security("")] internal SecurityExample() { Variable1 = "1"; Property1 = "1"; }
+		[Security("")] private enum Enum1 {B};
+		[Security("")] private readonly string Variable1;
+		[Security("")] private string Property1 { get; set; }
+		[Security("")] private Enum1 MethodParam1(Enum1 abc){return abc;}
+		[Security("")] delegate bool Delegate1();
+		[Security("")]event Delegate1 Event1;
+	}
+
+
+	[Insecure("")] internal interface IInsecureExample{}
+	[Insecure("")] internal struct InsecureStructExample{}
+	[Insecure("")] internal class InsecureExample : IInsecureExample
+	{
+		[Insecure("")] internal InsecureExample() { Variable1 = "1"; Property1 = "1"; }
+		[Insecure("")] private enum Enum1 {B};
+		[Insecure("")] private readonly string Variable1;
+		[Insecure("")] private string Property1 { get; set; }
+		[Insecure("")] private Enum1 MethodParam1(Enum1 abc){return abc;}
+		[Insecure("")] delegate bool Delegate1();
+		[Insecure("")]event Delegate1 Event1;
+	}
+
+
 	[Test("")] internal interface ITestExample{}
 	[Test("")] internal struct TestStructExample{}
 	[Test("")] internal class TestExample : ITestExample
@@ -161,6 +142,20 @@ namespace CodeDocs.Tests.AttributeUsage
 		[Test("")] private Enum1 MethodParam1(Enum1 abc){return abc;}
 		[Test("")] delegate bool Delegate1();
 		[Test("")]event Delegate1 Event1;
+	}
+
+
+	[Toxic("")] internal interface IToxicExample{}
+	[Toxic("")] internal struct ToxicStructExample{}
+	[Toxic("")] internal class ToxicExample : IToxicExample
+	{
+		[Toxic("")] internal ToxicExample() { Variable1 = "1"; Property1 = "1"; }
+		[Toxic("")] private enum Enum1 {B};
+		[Toxic("")] private readonly string Variable1;
+		[Toxic("")] private string Property1 { get; set; }
+		[Toxic("")] private Enum1 MethodParam1(Enum1 abc){return abc;}
+		[Toxic("")] delegate bool Delegate1();
+		[Toxic("")]event Delegate1 Event1;
 	}
 
 
@@ -189,6 +184,20 @@ namespace CodeDocs.Tests.AttributeUsage
 		[Feature("")] private Enum1 MethodParam1(Enum1 abc){return abc;}
 		[Feature("")] delegate bool Delegate1();
 		[Feature("")]event Delegate1 Event1;
+	}
+
+
+	[Location("")] internal interface ILocationExample{}
+	[Location("")] internal struct LocationStructExample{}
+	[Location("")] internal class LocationExample : ILocationExample
+	{
+		[Location("")] internal LocationExample() { Variable1 = "1"; Property1 = "1"; }
+		[Location("")] private enum Enum1 {B};
+		[Location("")] private readonly string Variable1;
+		[Location("")] private string Property1 { get; set; }
+		[Location("")] private Enum1 MethodParam1(Enum1 abc){return abc;}
+		[Location("")] delegate bool Delegate1();
+		[Location("")]event Delegate1 Event1;
 	}
 
 
@@ -248,17 +257,17 @@ namespace CodeDocs.Tests.AttributeUsage
 	}
 
 
-	[Location("")] internal interface ILocationExample{}
-	[Location("")] internal struct LocationStructExample{}
-	[Location("")] internal class LocationExample : ILocationExample
+	[Reviewed("")] internal interface IReviewedExample{}
+	[Reviewed("")] internal struct ReviewedStructExample{}
+	[Reviewed("")] internal class ReviewedExample : IReviewedExample
 	{
-		[Location("")] internal LocationExample() { Variable1 = "1"; Property1 = "1"; }
-		[Location("")] private enum Enum1 {B};
-		[Location("")] private readonly string Variable1;
-		[Location("")] private string Property1 { get; set; }
-		[Location("")] private Enum1 MethodParam1(Enum1 abc){return abc;}
-		[Location("")] delegate bool Delegate1();
-		[Location("")]event Delegate1 Event1;
+		[Reviewed("")] internal ReviewedExample() { Variable1 = "1"; Property1 = "1"; }
+		[Reviewed("")] private enum Enum1 {B};
+		[Reviewed("")] private readonly string Variable1;
+		[Reviewed("")] private string Property1 { get; set; }
+		[Reviewed("")] private Enum1 MethodParam1(Enum1 abc){return abc;}
+		[Reviewed("")] delegate bool Delegate1();
+		[Reviewed("")]event Delegate1 Event1;
 	}
 
 
@@ -276,34 +285,6 @@ namespace CodeDocs.Tests.AttributeUsage
 	}
 
 
-	[Hack("")] internal interface IHackExample{}
-	[Hack("")] internal struct HackStructExample{}
-	[Hack("")] internal class HackExample : IHackExample
-	{
-		[Hack("")] internal HackExample() { Variable1 = "1"; Property1 = "1"; }
-		[Hack("")] private enum Enum1 {B};
-		[Hack("")] private readonly string Variable1;
-		[Hack("")] private string Property1 { get; set; }
-		[Hack("")] private Enum1 MethodParam1(Enum1 abc){return abc;}
-		[Hack("")] delegate bool Delegate1();
-		[Hack("")]event Delegate1 Event1;
-	}
-
-
-	[Refactor("")] internal interface IRefactorExample{}
-	[Refactor("")] internal struct RefactorStructExample{}
-	[Refactor("")] internal class RefactorExample : IRefactorExample
-	{
-		[Refactor("")] internal RefactorExample() { Variable1 = "1"; Property1 = "1"; }
-		[Refactor("")] private enum Enum1 {B};
-		[Refactor("")] private readonly string Variable1;
-		[Refactor("")] private string Property1 { get; set; }
-		[Refactor("")] private Enum1 MethodParam1(Enum1 abc){return abc;}
-		[Refactor("")] delegate bool Delegate1();
-		[Refactor("")]event Delegate1 Event1;
-	}
-
-
 	[Clarification("")] internal interface IClarificationExample{}
 	[Clarification("")] internal struct ClarificationStructExample{}
 	[Clarification("")] internal class ClarificationExample : IClarificationExample
@@ -315,20 +296,6 @@ namespace CodeDocs.Tests.AttributeUsage
 		[Clarification("")] private Enum1 MethodParam1(Enum1 abc){return abc;}
 		[Clarification("")] delegate bool Delegate1();
 		[Clarification("")]event Delegate1 Event1;
-	}
-
-
-	[Purpose("")] internal interface IPurposeExample{}
-	[Purpose("")] internal struct PurposeStructExample{}
-	[Purpose("")] internal class PurposeExample : IPurposeExample
-	{
-		[Purpose("")] internal PurposeExample() { Variable1 = "1"; Property1 = "1"; }
-		[Purpose("")] private enum Enum1 {B};
-		[Purpose("")] private readonly string Variable1;
-		[Purpose("")] private string Property1 { get; set; }
-		[Purpose("")] private Enum1 MethodParam1(Enum1 abc){return abc;}
-		[Purpose("")] delegate bool Delegate1();
-		[Purpose("")]event Delegate1 Event1;
 	}
 
 
@@ -346,59 +313,45 @@ namespace CodeDocs.Tests.AttributeUsage
 	}
 
 
-	[SingleResponsibility("")] internal interface ISingleResponsibilityExample{}
-	[SingleResponsibility("")] internal struct SingleResponsibilityStructExample{}
-	[SingleResponsibility("")] internal class SingleResponsibilityExample : ISingleResponsibilityExample
+	[Hack("")] internal interface IHackExample{}
+	[Hack("")] internal struct HackStructExample{}
+	[Hack("")] internal class HackExample : IHackExample
 	{
-		[SingleResponsibility("")] internal SingleResponsibilityExample() { Variable1 = "1"; Property1 = "1"; }
-		[SingleResponsibility("")] private enum Enum1 {B};
-		[SingleResponsibility("")] private readonly string Variable1;
-		[SingleResponsibility("")] private string Property1 { get; set; }
-		[SingleResponsibility("")] private Enum1 MethodParam1(Enum1 abc){return abc;}
-		[SingleResponsibility("")] delegate bool Delegate1();
-		[SingleResponsibility("")]event Delegate1 Event1;
+		[Hack("")] internal HackExample() { Variable1 = "1"; Property1 = "1"; }
+		[Hack("")] private enum Enum1 {B};
+		[Hack("")] private readonly string Variable1;
+		[Hack("")] private string Property1 { get; set; }
+		[Hack("")] private Enum1 MethodParam1(Enum1 abc){return abc;}
+		[Hack("")] delegate bool Delegate1();
+		[Hack("")]event Delegate1 Event1;
 	}
 
 
-	[OpenClosed("")] internal interface IOpenClosedExample{}
-	[OpenClosed("")] internal struct OpenClosedStructExample{}
-	[OpenClosed("")] internal class OpenClosedExample : IOpenClosedExample
+	[Purpose("")] internal interface IPurposeExample{}
+	[Purpose("")] internal struct PurposeStructExample{}
+	[Purpose("")] internal class PurposeExample : IPurposeExample
 	{
-		[OpenClosed("")] internal OpenClosedExample() { Variable1 = "1"; Property1 = "1"; }
-		[OpenClosed("")] private enum Enum1 {B};
-		[OpenClosed("")] private readonly string Variable1;
-		[OpenClosed("")] private string Property1 { get; set; }
-		[OpenClosed("")] private Enum1 MethodParam1(Enum1 abc){return abc;}
-		[OpenClosed("")] delegate bool Delegate1();
-		[OpenClosed("")]event Delegate1 Event1;
+		[Purpose("")] internal PurposeExample() { Variable1 = "1"; Property1 = "1"; }
+		[Purpose("")] private enum Enum1 {B};
+		[Purpose("")] private readonly string Variable1;
+		[Purpose("")] private string Property1 { get; set; }
+		[Purpose("")] private Enum1 MethodParam1(Enum1 abc){return abc;}
+		[Purpose("")] delegate bool Delegate1();
+		[Purpose("")]event Delegate1 Event1;
 	}
 
 
-	[LiskovSubstitution("")] internal interface ILiskovSubstitutionExample{}
-	[LiskovSubstitution("")] internal struct LiskovSubstitutionStructExample{}
-	[LiskovSubstitution("")] internal class LiskovSubstitutionExample : ILiskovSubstitutionExample
+	[Refactor("")] internal interface IRefactorExample{}
+	[Refactor("")] internal struct RefactorStructExample{}
+	[Refactor("")] internal class RefactorExample : IRefactorExample
 	{
-		[LiskovSubstitution("")] internal LiskovSubstitutionExample() { Variable1 = "1"; Property1 = "1"; }
-		[LiskovSubstitution("")] private enum Enum1 {B};
-		[LiskovSubstitution("")] private readonly string Variable1;
-		[LiskovSubstitution("")] private string Property1 { get; set; }
-		[LiskovSubstitution("")] private Enum1 MethodParam1(Enum1 abc){return abc;}
-		[LiskovSubstitution("")] delegate bool Delegate1();
-		[LiskovSubstitution("")]event Delegate1 Event1;
-	}
-
-
-	[InterfaceSegregation("")] internal interface IInterfaceSegregationExample{}
-	[InterfaceSegregation("")] internal struct InterfaceSegregationStructExample{}
-	[InterfaceSegregation("")] internal class InterfaceSegregationExample : IInterfaceSegregationExample
-	{
-		[InterfaceSegregation("")] internal InterfaceSegregationExample() { Variable1 = "1"; Property1 = "1"; }
-		[InterfaceSegregation("")] private enum Enum1 {B};
-		[InterfaceSegregation("")] private readonly string Variable1;
-		[InterfaceSegregation("")] private string Property1 { get; set; }
-		[InterfaceSegregation("")] private Enum1 MethodParam1(Enum1 abc){return abc;}
-		[InterfaceSegregation("")] delegate bool Delegate1();
-		[InterfaceSegregation("")]event Delegate1 Event1;
+		[Refactor("")] internal RefactorExample() { Variable1 = "1"; Property1 = "1"; }
+		[Refactor("")] private enum Enum1 {B};
+		[Refactor("")] private readonly string Variable1;
+		[Refactor("")] private string Property1 { get; set; }
+		[Refactor("")] private Enum1 MethodParam1(Enum1 abc){return abc;}
+		[Refactor("")] delegate bool Delegate1();
+		[Refactor("")]event Delegate1 Event1;
 	}
 
 
@@ -430,6 +383,20 @@ namespace CodeDocs.Tests.AttributeUsage
 	}
 
 
+	[InterfaceSegregation("")] internal interface IInterfaceSegregationExample{}
+	[InterfaceSegregation("")] internal struct InterfaceSegregationStructExample{}
+	[InterfaceSegregation("")] internal class InterfaceSegregationExample : IInterfaceSegregationExample
+	{
+		[InterfaceSegregation("")] internal InterfaceSegregationExample() { Variable1 = "1"; Property1 = "1"; }
+		[InterfaceSegregation("")] private enum Enum1 {B};
+		[InterfaceSegregation("")] private readonly string Variable1;
+		[InterfaceSegregation("")] private string Property1 { get; set; }
+		[InterfaceSegregation("")] private Enum1 MethodParam1(Enum1 abc){return abc;}
+		[InterfaceSegregation("")] delegate bool Delegate1();
+		[InterfaceSegregation("")]event Delegate1 Event1;
+	}
+
+
 	[LeastKnowledge("")] internal interface ILeastKnowledgeExample{}
 	[LeastKnowledge("")] internal struct LeastKnowledgeStructExample{}
 	[LeastKnowledge("")] internal class LeastKnowledgeExample : ILeastKnowledgeExample
@@ -441,6 +408,20 @@ namespace CodeDocs.Tests.AttributeUsage
 		[LeastKnowledge("")] private Enum1 MethodParam1(Enum1 abc){return abc;}
 		[LeastKnowledge("")] delegate bool Delegate1();
 		[LeastKnowledge("")]event Delegate1 Event1;
+	}
+
+
+	[LiskovSubstitution("")] internal interface ILiskovSubstitutionExample{}
+	[LiskovSubstitution("")] internal struct LiskovSubstitutionStructExample{}
+	[LiskovSubstitution("")] internal class LiskovSubstitutionExample : ILiskovSubstitutionExample
+	{
+		[LiskovSubstitution("")] internal LiskovSubstitutionExample() { Variable1 = "1"; Property1 = "1"; }
+		[LiskovSubstitution("")] private enum Enum1 {B};
+		[LiskovSubstitution("")] private readonly string Variable1;
+		[LiskovSubstitution("")] private string Property1 { get; set; }
+		[LiskovSubstitution("")] private Enum1 MethodParam1(Enum1 abc){return abc;}
+		[LiskovSubstitution("")] delegate bool Delegate1();
+		[LiskovSubstitution("")]event Delegate1 Event1;
 	}
 
 
@@ -458,6 +439,20 @@ namespace CodeDocs.Tests.AttributeUsage
 	}
 
 
+	[OpenClosed("")] internal interface IOpenClosedExample{}
+	[OpenClosed("")] internal struct OpenClosedStructExample{}
+	[OpenClosed("")] internal class OpenClosedExample : IOpenClosedExample
+	{
+		[OpenClosed("")] internal OpenClosedExample() { Variable1 = "1"; Property1 = "1"; }
+		[OpenClosed("")] private enum Enum1 {B};
+		[OpenClosed("")] private readonly string Variable1;
+		[OpenClosed("")] private string Property1 { get; set; }
+		[OpenClosed("")] private Enum1 MethodParam1(Enum1 abc){return abc;}
+		[OpenClosed("")] delegate bool Delegate1();
+		[OpenClosed("")]event Delegate1 Event1;
+	}
+
+
 	[SeparationOfConcerns("")] internal interface ISeparationOfConcernsExample{}
 	[SeparationOfConcerns("")] internal struct SeparationOfConcernsStructExample{}
 	[SeparationOfConcerns("")] internal class SeparationOfConcernsExample : ISeparationOfConcernsExample
@@ -469,6 +464,20 @@ namespace CodeDocs.Tests.AttributeUsage
 		[SeparationOfConcerns("")] private Enum1 MethodParam1(Enum1 abc){return abc;}
 		[SeparationOfConcerns("")] delegate bool Delegate1();
 		[SeparationOfConcerns("")]event Delegate1 Event1;
+	}
+
+
+	[SingleResponsibility("")] internal interface ISingleResponsibilityExample{}
+	[SingleResponsibility("")] internal struct SingleResponsibilityStructExample{}
+	[SingleResponsibility("")] internal class SingleResponsibilityExample : ISingleResponsibilityExample
+	{
+		[SingleResponsibility("")] internal SingleResponsibilityExample() { Variable1 = "1"; Property1 = "1"; }
+		[SingleResponsibility("")] private enum Enum1 {B};
+		[SingleResponsibility("")] private readonly string Variable1;
+		[SingleResponsibility("")] private string Property1 { get; set; }
+		[SingleResponsibility("")] private Enum1 MethodParam1(Enum1 abc){return abc;}
+		[SingleResponsibility("")] delegate bool Delegate1();
+		[SingleResponsibility("")]event Delegate1 Event1;
 	}
 
 

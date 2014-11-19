@@ -1,0 +1,36 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ include file="Glossary.ttinclude"#>
+<#@ output extension=".cs" #>
+<#
+	var definitions = glossary.Groups.SelectMany(i=> i.Definitions);
+	var tags = definitions.SelectMany(i=> i.Tags).Distinct();
+#>
+using System;
+using System.Collections.ObjectModel;
+
+namespace CodeDocs
+{
+	public static partial class Glossary
+	{
+		static Glossary()
+		{
+<#foreach(var definition in definitions) { #>
+			<#=definition.Id#> = new <#=definition.Id#>Definition();
+<# } #>
+
+			Definitions = new ReadOnlyCollection<IDefinition>(new []{ <#=string.Join(", ", definitions.Select(i=> i.Id))#> });
+			Tags = new ReadOnlyCollection<string>(new []{ <#=string.Join(", ", tags.Select(i=> '"' + i + '"'))#> });
+		}
+
+		public static readonly ReadOnlyCollection<IDefinition> Definitions;
+		public static readonly ReadOnlyCollection<string> Tags;
+
+		#region Static ReadOnly Definitions
+
+<#foreach(var definition in definitions) { #>
+		public static readonly IDefinition <#=definition.Id#>;
+<# } #>
+
+		#endregion
+	}
+}

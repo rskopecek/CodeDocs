@@ -35,63 +35,97 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .NET Framework is automatically included -->
-    <None Include="v2\AttributeGenerator.tt">
+    <None Include="T4\Attributes.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>AttributeGenerator.cs</LastGenOutput>
+      <LastGenOutput>Attributes.cs</LastGenOutput>
     </None>
     <None Include="CodeDocs.nuspec" />
-    <None Include="v2\InterfaceGenerator.tt">
+    <None Include="T4\ConstantsAndEnums.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>InterfaceGenerator.cs</LastGenOutput>
+      <LastGenOutput>ConstantsAndEnums.generated.cs</LastGenOutput>
     </None>
+    <None Include="glossary.json" />
+    <None Include="T4\Glossary.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Glossary.cs</LastGenOutput>
+    </None>
+    <None Include="T4\Glossary.ttinclude">
+      <LastGenOutput>Glossary1.cs</LastGenOutput>
+    </None>
+    <None Include="T4\Definitions.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Definitions.generated.cs</LastGenOutput>
+    </None>
+    <None Include="T4\Interfaces.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Interfaces.generated.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CodeDocsBaseAttribute.cs" />
+    <Compile Include="T4\Attributes.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Attributes.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CodeDocsAttribute.cs" />
+    <Compile Include="Glue\CodeDocsBaseAttribute.cs" />
+    <Compile Include="T4\ConstantsAndEnums.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ConstantsAndEnums.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4\Definitions.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Definitions.tt</DependentUpon>
+    </Compile>
     <Compile Include="HelperFunctions.cs" />
-    <Compile Include="v1\ChangeAttribute.cs" />
-    <Compile Include="v1\CodeBasedCommentAttribute.cs" />
-    <Compile Include="v1\ConstantsAndEnums.cs" />
-    <Compile Include="v1\DocsAttribute.cs" />
-    <Compile Include="v1\FeatureAttribute.cs" />
-    <Compile Include="v1\HackAttribute.cs" />
-    <Compile Include="v1\LocationAttribute.cs" />
-    <Compile Include="v1\MajorChangeAttribute.cs" />
-    <Compile Include="v1\MinorChangeAttribute.cs" />
-    <Compile Include="v1\NamingAttribute.cs" />
-    <Compile Include="v1\PurposeAttribute.cs" />
-    <Compile Include="v1\ReadabilityAttribute.cs" />
-    <Compile Include="v1\RefactorAttribute.cs" />
-    <Compile Include="v1\TestAttribute.cs" />
-    <Compile Include="v1\TodoAttribute.cs" />
-    <Compile Include="v1\WhenAttribute.cs" />
-    <Compile Include="v2\AttributeGenerator.cs">
+    <Compile Include="CI00002\ChangeAttribute.cs" />
+    <Compile Include="CI00002\CodeBasedCommentAttribute.cs" />
+    <Compile Include="CI00002\ConstantsAndEnums.cs" />
+    <Compile Include="CI00002\DocsAttribute.cs" />
+    <Compile Include="CI00002\FeatureAttribute.cs" />
+    <Compile Include="CI00002\HackAttribute.cs" />
+    <Compile Include="CI00002\LocationAttribute.cs" />
+    <Compile Include="CI00002\MajorChangeAttribute.cs" />
+    <Compile Include="CI00002\MinorChangeAttribute.cs" />
+    <Compile Include="CI00002\NamingAttribute.cs" />
+    <Compile Include="CI00002\PurposeAttribute.cs" />
+    <Compile Include="CI00002\ReadabilityAttribute.cs" />
+    <Compile Include="CI00002\RefactorAttribute.cs" />
+    <Compile Include="CI00002\TestAttribute.cs" />
+    <Compile Include="CI00002\TodoAttribute.cs" />
+    <Compile Include="CI00002\WhenAttribute.cs" />
+    <Compile Include="Glue\ICodeDocsAttribute.cs" />
+    <Compile Include="T4\Glossary.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>AttributeGenerator.tt</DependentUpon>
+      <DependentUpon>Glossary.tt</DependentUpon>
     </Compile>
-    <Compile Include="v2\CodeDocsAttribute.cs" />
+    <Compile Include="T4\Interfaces.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Interfaces.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Glue\IQualityEvaluator.cs" />
+    <Compile Include="QualityEvaluator.cs" />
+    <Compile Include="Glue\IDefinition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="v2\ICodeDocsAttribute.cs" />
-    <Compile Include="v2\InterfaceGenerator.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>InterfaceGenerator.tt</DependentUpon>
-    </Compile>
-    <Compile Include="v2\IQualityEvaluator.cs" />
-    <Compile Include="v2\QualityEvaluator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CodeDocs.Definitions\CodeDocs.Definitions.csproj">
-      <Project>{1d48b694-8863-47d3-8483-a4eb05f0c19a}</Project>
-      <Name>CodeDocs.Definitions</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
+    <Content Include="logo.jpg" />
     <Content Include="readme.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

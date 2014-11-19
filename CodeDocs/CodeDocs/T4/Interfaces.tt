@@ -1,0 +1,37 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ include file="Glossary.ttinclude"#>
+<#@ output extension="generated.cs" #>
+<#
+	var definitions = glossary.Groups.SelectMany(i=> i.Definitions);
+	var tags = definitions.SelectMany(i=> i.Tags).Distinct();
+#>
+using System;
+
+namespace CodeDocs
+{
+	// Risks
+<# foreach(var risk in glossary.Risks) { #>
+
+	public interface I<#=risk.Name#>RiskTag{}
+<# } #>
+
+	// Efforts
+<# foreach(var effort in glossary.Efforts) { #>
+
+	public interface I<#=effort.Name#>EffortTag{}
+<# } #>
+
+	// Groups
+<# foreach(var grp in glossary.Groups) { #>
+
+	public interface I<#=grp.Name#>Group{}
+<# } #>
+
+
+	// Tags
+	public interface IOnePerContextTag{}
+<# foreach(var tag in tags) { #>
+
+	public interface I<#=tag#>Tag{}
+<# } #>
+}

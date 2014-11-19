@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace CodeDocs.Helpers
@@ -25,6 +26,14 @@ namespace CodeDocs.Helpers
         public static DateTime ToDate(this int yyyymmdd)
         {
             return DateTime.ParseExact(yyyymmdd.ToString(), "yyyyMMdd", CultureInfo.InvariantCulture);
+        }
+
+        /// <summary>
+        /// Short-hand for Uri.IsWellFormedUriString(value, UriKind.RelativeOrAbsolute)
+        /// </summary>
+        public static bool IsUri(this string value)
+        {
+            return Uri.IsWellFormedUriString(value, UriKind.RelativeOrAbsolute);
         }
 
     }

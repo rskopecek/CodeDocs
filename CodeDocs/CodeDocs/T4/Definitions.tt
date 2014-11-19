@@ -1,0 +1,31 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ include file="Glossary.ttinclude"#>
+<#@ output extension="generated.cs" #>
+<#
+	var nextLineWithComma = "," + Environment.NewLine + "		";
+#>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace CodeDocs
+{
+
+<#foreach(var grp in glossary.Groups) { #>
+<#	foreach(var item in grp.Definitions) { #>
+	public sealed class <#=item.Id#>Definition : IDefinition, I<#=grp.Name#>Group, <#=string.Join(", ", item.InterfaceNames())#>
+	{
+		public string Group { get { return "<#=grp.Name#>";} }
+		public string Name { get { return "<#=item.Name#>"; } }
+		public string Description { get { return "<#=item.Description#>"; } }
+		public Risk DefaultRisk { get { return Risk.<#=item.Risk#>; } }
+		public Effort DefaultEffort { get { return Effort.<#=item.Effort#>; } }
+		public Tag[] Tags { get { return new[]{ <#=string.Join(", ", item.Tags.Select(i=> "Tag." + i))#> }; } }
+		public bool OnePerContext { get { return <#=item.OnePerContext.ToString().ToLower()#>; } }
+	}
+
+<#	} #>
+<# } #>
+
+}

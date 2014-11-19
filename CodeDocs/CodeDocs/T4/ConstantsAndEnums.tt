@@ -1,0 +1,73 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ include file="Glossary.ttinclude"#>
+<#@ output extension="generated.cs" #>
+<#	
+	var nextLineWithComma = "," + Environment.NewLine + "		";
+	var definitions = glossary.Groups.SelectMany(i=> i.Definitions);
+	var tags = definitions.SelectMany(i=> i.Tags).Distinct();
+#>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace CodeDocs
+{
+
+	public enum Risk
+	{
+		<#=string.Join(nextLineWithComma, glossary.Risks.Select(i=> i.Name + " = " + i.Value))#>
+	}
+
+	public enum Effort
+	{
+		<#=string.Join(nextLineWithComma, glossary.Efforts.Select(i=> i.Name + " = " + i.Value))#>
+	}
+
+	public enum Tag
+	{
+		<#=string.Join(nextLineWithComma, tags)#>
+	}
+
+	public static partial class Constants
+	{
+		public const AttributeTargets Scope = <#= string.Join(" | ", glossary.Scope.Select(i=> "AttributeTargets." + i))#>;
+	
+		#region Enum.ToName()
+
+		public static string ToName(this Risk risk)
+		{
+			switch(risk)
+			{
+<#foreach(var risk in glossary.Risks) { #>
+				case Risk.<#=risk.Name#>: return "<#=risk.Name#>";
+<# } #>
+				default: return string.Empty;
+			}
+		}
+
+		public static string ToName(this Effort effort)
+		{
+			switch(effort)
+			{
+<#foreach(var effort in glossary.Efforts) { #>
+				case Effort.<#=effort.Name#>: return "<#=effort.Name#>";
+<# } #>
+				default: return string.Empty;
+			}
+		}
+
+		public static string ToName(this Tag tag)
+		{
+			switch(tag)
+			{
+<#foreach(var tag in tags) { #>
+				case Tag.<#=tag#>: return "<#=tag#>";
+<# } #>
+				default: return string.Empty;
+			}
+		}
+	
+		#endregion
+	}
+}
