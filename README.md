@@ -5,12 +5,12 @@ Code-based documentation and risk management (Code-quality metadata)
 Getting Started
 ---------------
 
-1. Install Quickly ([NuGet](https://www.nuget.org/packages/CodeDocs)):
+1) Install Quickly ([NuGet](https://www.nuget.org/packages/CodeDocs)):
 ```
 PM> Install-Package codedocs -Pre
 ```
 
-2. Use Freely
+2) Use Freely
 ```csharp
     [Feature("Class2 brings awesome functionality you can't live without")]
     [Naming("Class 2 doesn't provided any meaning to the functionality provided")]
@@ -34,7 +34,7 @@ PM> Install-Package codedocs -Pre
     }
 ```
 
-3. Consume Easily
+3) Consume Easily
 ```csharp
     void DoSomething(Abc abc)
     {
