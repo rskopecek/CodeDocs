@@ -5,10 +5,49 @@ Code-based documentation and risk management (Code-quality metadata)
 Getting Started
 ---------------
 
-Install from [NuGet](https://www.nuget.org/packages/CodeDocs):
+1. Install Quickly ([NuGet](https://www.nuget.org/packages/CodeDocs)):
 ```
 PM> Install-Package codedocs -Pre
 ```
+
+2. Use Freely
+```csharp
+    [Feature("Class2 brings awesome functionality you can't live without")]
+    [Naming("Class 2 doesn't provided any meaning to the functionality provided")]
+    class Class2
+    {
+        [Insecure("Oh no", 
+            "encryption", "http://www.troyhunt.com/2013/07/how-to-build-and-how-not-to-build.html")]
+        private string Encrypt(byte[] data)
+        {
+            return Convert.ToBase64String(data);
+        }
+        
+        [Toxic("Whatever you do don't change below or the whole system state will crash")]
+        private class abc { /* code horror movies are made of...be advised O.O */ }
+        
+        [Bug("Divide by 0?", Risk.High, Effort.VerySmall)]
+        public double CalculateStuff(int x, int y)
+        {
+            return x / y;
+        }
+    }
+```
+
+3. Consume Easily
+```csharp
+    void DoSomething(Abc abc)
+    {
+        var docs = abc.GetCodeDocs();
+        // or
+        var docs = typeof(this).GetCodeDocs();
+        // or
+        var docs = typeof(abc).Assembly.GetCodeDocs();
+    }
+```
+
+
+
 
 ###Why?
 
