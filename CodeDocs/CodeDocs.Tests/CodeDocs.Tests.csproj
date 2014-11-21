@@ -55,6 +55,19 @@
       <DependentUpon>CompilableAttributeUsage.tt</DependentUpon>
     </Compile>
     <Compile Include="AttributeUsage\ConstructorUsage.cs" />
+    <Compile Include="Detection\ClassDetectionTests.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClassDetectionTests.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Detection\DetectionTestUtilities.cs" />
+    <Compile Include="Detection\EnumDetectionTests.cs" />
+    <Compile Include="Detection\InterfaceDetectionTests.cs" />
+    <Compile Include="Detection\StructDetectionTests.generated.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StructDetectionTests.tt</DependentUpon>
+    </Compile>
     <Compile Include="HelperFunctions\ToDate_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -65,6 +78,14 @@
     </None>
     <None Include="AttributeUsage\Glossary.ttinclude">
       <LastGenOutput>Glossary1.cs</LastGenOutput>
+    </None>
+    <None Include="Detection\ClassDetectionTests.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ClassDetectionTests.generated.cs</LastGenOutput>
+    </None>
+    <None Include="Detection\StructDetectionTests.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>StructDetectionTests.generated.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
