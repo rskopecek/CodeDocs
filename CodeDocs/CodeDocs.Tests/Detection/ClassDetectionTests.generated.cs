@@ -10,28 +10,29 @@ namespace CodeDocs.Tests.Detection
 	// Automated Tests
 	public class ClassDetectionAutomatedTests
 	{
-		public void AssertDetect(Type type, int amount)
-		{
-            var results = type.Detect();
 
-			results.AssertExpectations(amount);
-		}
 		// Static
 
 		[Fact]
-		public void Detection_Of_publicStaticDetectionExample() { typeof(publicStaticDetectionExample).Detect().AssertExpectations(publicStaticDetectionExample.DetectionCount); }
+		public void Detection_Of_publicStaticDetectionExample() { typeof(publicStaticDetectionExample).GetCodeDocs().AssertExpectations(publicStaticDetectionExample.DetectionCount); }
 
 		[Fact]
-		public void Detection_Of_internalStaticDetectionExample() { typeof(internalStaticDetectionExample).Detect().AssertExpectations(internalStaticDetectionExample.DetectionCount); }
+		public void Detection_Of_internalStaticDetectionExample() { typeof(internalStaticDetectionExample).GetCodeDocs().AssertExpectations(internalStaticDetectionExample.DetectionCount); }
 
 
 
 		// Instance
 		[Fact]
-		public void Detection_Of_publicInstanceDetectionExample() { typeof(publicInstanceDetectionExample).Detect().AssertExpectations(publicInstanceDetectionExample.DetectionCount); }
+		public void Detection_Of_publicInstanceDetectionExample_FromType() { typeof(publicInstanceDetectionExample).GetCodeDocs().AssertExpectations(publicInstanceDetectionExample.DetectionCount); }
+		
+		[Fact]
+		public void Detection_Of_publicInstanceDetectionExample_FromInstance() { (new publicInstanceDetectionExample(1)).GetCodeDocs().AssertExpectations(publicInstanceDetectionExample.DetectionCount); }
 
 		[Fact]
-		public void Detection_Of_internalInstanceDetectionExample() { typeof(internalInstanceDetectionExample).Detect().AssertExpectations(internalInstanceDetectionExample.DetectionCount); }
+		public void Detection_Of_internalInstanceDetectionExample_FromType() { typeof(internalInstanceDetectionExample).GetCodeDocs().AssertExpectations(internalInstanceDetectionExample.DetectionCount); }
+		
+		[Fact]
+		public void Detection_Of_internalInstanceDetectionExample_FromInstance() { (new internalInstanceDetectionExample(1)).GetCodeDocs().AssertExpectations(internalInstanceDetectionExample.DetectionCount); }
 
 
 	}

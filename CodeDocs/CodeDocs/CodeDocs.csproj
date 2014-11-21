@@ -64,8 +64,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Detection\Detection.cs" />
+    <Compile Include="Detection\AssemblyDetection.cs" />
     <Compile Include="Detection\Detector.cs" />
+    <Compile Include="Detection\IDetectionScope.cs" />
+    <Compile Include="Detection\MemberDetection.cs" />
+    <Compile Include="Detection\TypeDetection.cs" />
     <Compile Include="T4\Attributes.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

@@ -22,18 +22,13 @@ namespace CodeDocs.Tests.Detection
 	// Automated Tests
 	public class ClassDetectionAutomatedTests
 	{
-		public void AssertDetect(Type type, int amount)
-		{
-            var results = type.Detect();
 
-			results.AssertExpectations(amount);
-		}
 		// Static
 
 <#	foreach(var protection in classProtections) { #>
 <#		string className = protection.Replace(" ","") + "StaticDetectionExample"; #>
 		[Fact]
-		public void Detection_Of_<#=className#>() { typeof(<#=className#>).Detect().AssertExpectations(<#=className#>.DetectionCount); }
+		public void Detection_Of_<#=className#>() { typeof(<#=className#>).GetCodeDocs().AssertExpectations(<#=className#>.DetectionCount); }
 
 <# } #>
 
@@ -42,7 +37,10 @@ namespace CodeDocs.Tests.Detection
 <#	foreach(var protection in classProtections) { #>
 <#		string className = protection.Replace(" ","") + "InstanceDetectionExample"; #>
 		[Fact]
-		public void Detection_Of_<#=className#>() { typeof(<#=className#>).Detect().AssertExpectations(<#=className#>.DetectionCount); }
+		public void Detection_Of_<#=className#>_FromType() { typeof(<#=className#>).GetCodeDocs().AssertExpectations(<#=className#>.DetectionCount); }
+		
+		[Fact]
+		public void Detection_Of_<#=className#>_FromInstance() { (new <#=className#>(1)).GetCodeDocs().AssertExpectations(<#=className#>.DetectionCount); }
 
 <# } #>
 

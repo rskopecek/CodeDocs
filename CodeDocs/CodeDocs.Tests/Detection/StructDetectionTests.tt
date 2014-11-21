@@ -22,17 +22,14 @@ namespace CodeDocs.Tests.Detection
 	// Automated Tests
 	public class StructDetectionAutomatedTests
 	{
-		public void AssertDetect(Type type, int amount)
-		{
-            var results = type.Detect();
-
-			results.AssertExpectations(amount);
-		}
 
 <#	foreach(var protection in classProtections) { #>
 <#		string className = protection.Replace(" ","") + "InstanceDetectionExampleStruct"; #>
 		[Fact]
-		public void Detection_Of_<#=className#>() { typeof(<#=className#>).Detect().AssertExpectations(<#=className#>.DetectionCount); }
+		public void Detection_Of_<#=className#>_FromType() { typeof(<#=className#>).GetCodeDocs().AssertExpectations(<#=className#>.DetectionCount); }
+
+		[Fact]
+		public void Detection_Of_<#=className#>_FromInstance() { (new <#=className#>(1)).GetCodeDocs().AssertExpectations(<#=className#>.DetectionCount); }
 
 <# } #>
 

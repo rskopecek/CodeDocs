@@ -11,10 +11,10 @@ namespace CodeDocs.Tests.Detection
     {
 
         [Fact]
-        public void Detection_Of_publicInstanceDetectionExampleInterface() { typeof(publicDetectionExampleInterface).Detect().AssertExpectations(4); }
+        public void Detection_Of_publicInstanceDetectionExampleInterface() { typeof(publicDetectionExampleInterface).GetCodeDocs().AssertExpectations(4); }
 
         [Fact]
-        public void Detection_Of_internalInstanceDetectionExampleInterface() { typeof(internalDetectionExampleInterface).Detect().AssertExpectations(4); }
+        public void Detection_Of_internalInstanceDetectionExampleInterface() { typeof(internalDetectionExampleInterface).GetCodeDocs().AssertExpectations(4); }
 
 
         public delegate string D();

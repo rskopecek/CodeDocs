@@ -10,30 +10,10 @@ namespace CodeDocs.Tests.Detection
     public static class DetectionTestUtilities
     {
 
-
-        public static void AssertDetect(this Type type, int amount)
+        public static void AssertExpectations(this IDetectionScope detections, int expectationCount)
         {
-            var results = type.Detect();
-
-            results.AssertExpectations(amount);
-        }
-
-        public static void AssertExpectations(this IEnumerable<CodeDocs.Detection> detections, params string[] expectations)
-        {
-            var results = detections.Select(i => i.Info.Details).ToList();
-
-            Assert.Equal(expectations.Count(), results.Count);
-
-            foreach (var expectation in expectations)
-            {
-                Assert.True(results.Contains(expectation));
-            }
-        }
-
-
-        public static void AssertExpectations(this IEnumerable<CodeDocs.Detection> detections, int expectationCount)
-        {
-            var results = detections.Select(i => i.Info.Details).ToList();
+            
+            var results = detections.GetAllDetections().Select(i => i.Details).ToList();
 
             Assert.Equal(expectationCount, results.Count);
 

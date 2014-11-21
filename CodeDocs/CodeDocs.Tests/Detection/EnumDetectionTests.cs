@@ -12,7 +12,7 @@ namespace CodeDocs.Tests.Detection
         [Fact]
         public void Can_Detect_Attributes_On_Enum()
         {
-            typeof(EnumDetectionExample).Detect().AssertExpectations(2);
+            typeof(EnumDetectionExample).GetCodeDocs().AssertExpectations(2);
         }
 
     }

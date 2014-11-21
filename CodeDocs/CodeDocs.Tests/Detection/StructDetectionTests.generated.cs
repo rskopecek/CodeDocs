@@ -10,18 +10,18 @@ namespace CodeDocs.Tests.Detection
 	// Automated Tests
 	public class StructDetectionAutomatedTests
 	{
-		public void AssertDetect(Type type, int amount)
-		{
-            var results = type.Detect();
-
-			results.AssertExpectations(amount);
-		}
 
 		[Fact]
-		public void Detection_Of_publicInstanceDetectionExampleStruct() { typeof(publicInstanceDetectionExampleStruct).Detect().AssertExpectations(publicInstanceDetectionExampleStruct.DetectionCount); }
+		public void Detection_Of_publicInstanceDetectionExampleStruct_FromType() { typeof(publicInstanceDetectionExampleStruct).GetCodeDocs().AssertExpectations(publicInstanceDetectionExampleStruct.DetectionCount); }
 
 		[Fact]
-		public void Detection_Of_internalInstanceDetectionExampleStruct() { typeof(internalInstanceDetectionExampleStruct).Detect().AssertExpectations(internalInstanceDetectionExampleStruct.DetectionCount); }
+		public void Detection_Of_publicInstanceDetectionExampleStruct_FromInstance() { (new publicInstanceDetectionExampleStruct(1)).GetCodeDocs().AssertExpectations(publicInstanceDetectionExampleStruct.DetectionCount); }
+
+		[Fact]
+		public void Detection_Of_internalInstanceDetectionExampleStruct_FromType() { typeof(internalInstanceDetectionExampleStruct).GetCodeDocs().AssertExpectations(internalInstanceDetectionExampleStruct.DetectionCount); }
+
+		[Fact]
+		public void Detection_Of_internalInstanceDetectionExampleStruct_FromInstance() { (new internalInstanceDetectionExampleStruct(1)).GetCodeDocs().AssertExpectations(internalInstanceDetectionExampleStruct.DetectionCount); }
 
 
 	}
