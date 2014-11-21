@@ -12,6 +12,8 @@ PM> Install-Package codedocs -Pre
 
 2) Use Freely
 ```csharp
+    using CodeDocs;
+
     [Feature("Class2 brings awesome functionality you can't live without")]
     [Naming("Class 2 doesn't provided any meaning to the functionality provided")]
     class Class2
@@ -36,6 +38,8 @@ PM> Install-Package codedocs -Pre
 
 3) Consume Easily
 ```csharp
+    using CodeDocs;
+
     void DoSomething(Abc abc)
     {
         var docs = abc.GetCodeDocs();
