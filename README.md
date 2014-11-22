@@ -2,6 +2,8 @@ CodeDocs
 ========
 Code-based documentation and risk management (Code-quality metadata)
 
+Feel free to chat on twitter if you've got questions & such. [@rskopecek](https://twitter.com/rskopecek)
+
 Getting Started
 ---------------
 
