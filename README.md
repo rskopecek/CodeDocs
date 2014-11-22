@@ -97,3 +97,32 @@ SeparationOfConcerns, SingleResponsibility, YouArentGonnaNeedIt
     [Bug("comment", Risk.None, Effort.None, 20010203, "tag", "http://stackoverflow.com")]
     public class Example {}
 ```
+
+###General Usage Structure
+Type | Name | Description
+--- | --- | ---
+string | details | What needs to be conveyed given the context/attribute used. (required)
+Risk | risk | Enum expression of the risk associated with the context/attribute.  Values are None[0], Low[3], Moderate[21], High[89], Extreme[144]
+Effort | effort | Enum expression of the effort required to address given the context/attribute.  Values are None[0], VerySmall[1], Small[8], Medium[34], Large[55], VeryLarge[89], Unknown[144]
+int | yyyymmdd | Date to attach to the context/attribute.  .Net Attributes don't allow DateTime so it is expressed as an int in one field and converted to DateTime for your use.
+params string[] | tagsAndReferences | Tags or Uris/Urls. Order doesn't matter and no limit.  Detected Uris will be available via ".References" and tags at ".Tags"
+
+####Variations
+```csharp
+    [Attribute(details)]
+    [Attribute(details, risk)]
+    [Attribute(details, effort)]
+    [Attribute(details, yyyymmdd)]
+    [Attribute(details, risk, effort)]
+    [Attribute(details, risk, yyyymmdd)]
+    [Attribute(details, effort, yyyymmdd)]
+    [Attribute(details, risk, effort, yyyymmdd)]
+    [Attribute(details, tagsAndReferences)]
+    [Attribute(details, risk, tagsAndReferences)]
+    [Attribute(details, effort, tagsAndReferences)]
+    [Attribute(details, yyyymmdd, tagsAndReferences)]
+    [Attribute(details, risk, effort, tagsAndReferences)]
+    [Attribute(details, risk, yyyymmdd, tagsAndReferences)]
+    [Attribute(details, effort, yyyymmdd, tagsAndReferences)]
+    [Attribute(details, risk, effort, yyyymmdd, tagsAndReferences)]
+```
