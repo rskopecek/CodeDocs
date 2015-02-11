@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>10.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{517E2D06-0782-485A-902E-3FFEA2CD5741}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CodeDocs</RootNamespace>
+    <AssemblyName>CodeDocs</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile344</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\CodeDocs.XML</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <None Include="CodeDocs.nuspec" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Detection\AssemblyDetection.cs" />
+    <Compile Include="Detection\Detector.cs" />
+    <Compile Include="Detection\IDetectionScope.cs" />
+    <Compile Include="Detection\MemberDetection.cs" />
+    <Compile Include="Detection\TypeDetection.cs" />
+    <Compile Include="Generated\Attributes\Bug.generated.cs" />
+    <Compile Include="Generated\Attributes\Cite.generated.cs" />
+    <Compile Include="Generated\Attributes\Clarification.generated.cs" />
+    <Compile Include="Generated\Attributes\Consequence.generated.cs" />
+    <Compile Include="Generated\Attributes\DeadCode.generated.cs" />
+    <Compile Include="Generated\Attributes\DependancyInversion.generated.cs" />
+    <Compile Include="Generated\Attributes\DontRepeatYourself.generated.cs" />
+    <Compile Include="Generated\Attributes\Feature.generated.cs" />
+    <Compile Include="Generated\Attributes\Future.generated.cs" />
+    <Compile Include="Generated\Attributes\Hack.generated.cs" />
+    <Compile Include="Generated\Attributes\Insecure.generated.cs" />
+    <Compile Include="Generated\Attributes\InterfaceSegregation.generated.cs" />
+    <Compile Include="Generated\Attributes\LeastKnowledge.generated.cs" />
+    <Compile Include="Generated\Attributes\LiskovSubstitution.generated.cs" />
+    <Compile Include="Generated\Attributes\Location.generated.cs" />
+    <Compile Include="Generated\Attributes\MajorChange.generated.cs" />
+    <Compile Include="Generated\Attributes\MajorFix.generated.cs" />
+    <Compile Include="Generated\Attributes\MinorChange.generated.cs" />
+    <Compile Include="Generated\Attributes\MinorFix.generated.cs" />
+    <Compile Include="Generated\Attributes\Naming.generated.cs" />
+    <Compile Include="Generated\Attributes\OccamsRazor.generated.cs" />
+    <Compile Include="Generated\Attributes\OpenClosed.generated.cs" />
+    <Compile Include="Generated\Attributes\Purpose.generated.cs" />
+    <Compile Include="Generated\Attributes\Readability.generated.cs" />
+    <Compile Include="Generated\Attributes\Refactor.generated.cs" />
+    <Compile Include="Generated\Attributes\Reviewed.generated.cs" />
+    <Compile Include="Generated\Attributes\Security.generated.cs" />
+    <Compile Include="Generated\Attributes\SeparationOfConcerns.generated.cs" />
+    <Compile Include="Generated\Attributes\SingleResponsibility.generated.cs" />
+    <Compile Include="Generated\Attributes\Slow.generated.cs" />
+    <Compile Include="Generated\Attributes\Standards.generated.cs" />
+    <Compile Include="Generated\Attributes\Test.generated.cs" />
+    <Compile Include="Generated\Attributes\Todo.generated.cs" />
+    <Compile Include="Generated\Attributes\Toxic.generated.cs" />
+    <Compile Include="Generated\Attributes\YouArentGonnaNeedIt.generated.cs" />
+    <Compile Include="Generated\ConstantsAndEnums.generated.cs" />
+    <Compile Include="Generated\Definitions\Bug.generated.cs" />
+    <Compile Include="Generated\Definitions\Cite.generated.cs" />
+    <Compile Include="Generated\Definitions\Clarification.generated.cs" />
+    <Compile Include="Generated\Definitions\Consequence.generated.cs" />
+    <Compile Include="Generated\Definitions\DeadCode.generated.cs" />
+    <Compile Include="Generated\Definitions\DependancyInversion.generated.cs" />
+    <Compile Include="Generated\Definitions\DontRepeatYourself.generated.cs" />
+    <Compile Include="Generated\Definitions\Feature.generated.cs" />
+    <Compile Include="Generated\Definitions\Future.generated.cs" />
+    <Compile Include="Generated\Definitions\Hack.generated.cs" />
+    <Compile Include="Generated\Definitions\Insecure.generated.cs" />
+    <Compile Include="Generated\Definitions\InterfaceSegregation.generated.cs" />
+    <Compile Include="Generated\Definitions\LeastKnowledge.generated.cs" />
+    <Compile Include="Generated\Definitions\LiskovSubstitution.generated.cs" />
+    <Compile Include="Generated\Definitions\Location.generated.cs" />
+    <Compile Include="Generated\Definitions\MajorChange.generated.cs" />
+    <Compile Include="Generated\Definitions\MajorFix.generated.cs" />
+    <Compile Include="Generated\Definitions\MinorChange.generated.cs" />
+    <Compile Include="Generated\Definitions\MinorFix.generated.cs" />
+    <Compile Include="Generated\Definitions\Naming.generated.cs" />
+    <Compile Include="Generated\Definitions\OccamsRazor.generated.cs" />
+    <Compile Include="Generated\Definitions\OpenClosed.generated.cs" />
+    <Compile Include="Generated\Definitions\Purpose.generated.cs" />
+    <Compile Include="Generated\Definitions\Readability.generated.cs" />
+    <Compile Include="Generated\Definitions\Refactor.generated.cs" />
+    <Compile Include="Generated\Definitions\Reviewed.generated.cs" />
+    <Compile Include="Generated\Definitions\Security.generated.cs" />
+    <Compile Include="Generated\Definitions\SeparationOfConcerns.generated.cs" />
+    <Compile Include="Generated\Definitions\SingleResponsibility.generated.cs" />
+    <Compile Include="Generated\Definitions\Slow.generated.cs" />
+    <Compile Include="Generated\Definitions\Standards.generated.cs" />
+    <Compile Include="Generated\Definitions\Test.generated.cs" />
+    <Compile Include="Generated\Definitions\Todo.generated.cs" />
+    <Compile Include="Generated\Definitions\Toxic.generated.cs" />
+    <Compile Include="Generated\Definitions\YouArentGonnaNeedIt.generated.cs" />
+    <Compile Include="Generated\Glossary.generated.cs" />
+    <Compile Include="Generated\Interfaces\IBelongingTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IChangeTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IConfidenceTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IConsequenceTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IDeadCodeTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IDegredationTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IDIPTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IDRYTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IExtremeRiskTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IFeatureTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IFixTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IFunctionalTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IFutureTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IHighRiskTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IInSecureTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IISPTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\ILargeEffortTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\ILoDTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\ILowRiskTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\ILSPTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IMajorTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IMeaningTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IMediumEffortTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IMinorTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IModerateRiskTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\INoneEffortTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\INoneRiskTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IOCPTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IOnePerContextTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IPerformanceTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IPrinciplesTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IReviewTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\ISafetyTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\ISecurityTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\ISmallEffortTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\ISoCTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\ISOLIDTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\ISRPTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IStandardsTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IToxicTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IUnknownEffortTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IUnknownRiskTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IVeryLargeEffortTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IVerySmallEffortTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IWorkTag.generated.cs" />
+    <Compile Include="Generated\Interfaces\IYAGNITag.generated.cs" />
+    <Compile Include="CodeDocsAttribute.cs" />
+    <Compile Include="Glue\CodeDocsBaseAttribute.cs" />
+    <Compile Include="HelperFunctions.cs" />
+    <Compile Include="CI00002\ChangeAttribute.cs" />
+    <Compile Include="CI00002\CodeBasedCommentAttribute.cs" />
+    <Compile Include="CI00002\ConstantsAndEnums.cs" />
+    <Compile Include="CI00002\DocsAttribute.cs" />
+    <Compile Include="CI00002\FeatureAttribute.cs" />
+    <Compile Include="CI00002\HackAttribute.cs" />
+    <Compile Include="CI00002\LocationAttribute.cs" />
+    <Compile Include="CI00002\MajorChangeAttribute.cs" />
+    <Compile Include="CI00002\MinorChangeAttribute.cs" />
+    <Compile Include="CI00002\NamingAttribute.cs" />
+    <Compile Include="CI00002\PurposeAttribute.cs" />
+    <Compile Include="CI00002\ReadabilityAttribute.cs" />
+    <Compile Include="CI00002\RefactorAttribute.cs" />
+    <Compile Include="CI00002\TestAttribute.cs" />
+    <Compile Include="CI00002\TodoAttribute.cs" />
+    <Compile Include="CI00002\WhenAttribute.cs" />
+    <Compile Include="Glue\ICodeDocsAttribute.cs" />
+    <Compile Include="Glue\IQualityEvaluator.cs" />
+    <Compile Include="QualityEvaluator.cs" />
+    <Compile Include="Glue\IDefinition.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

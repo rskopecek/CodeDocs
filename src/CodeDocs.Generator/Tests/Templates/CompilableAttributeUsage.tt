@@ -1,0 +1,23 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+using System;
+using CodeDocs;
+
+namespace CodeDocs.Tests.AttributeUsage
+{
+	[<#=Definition.Id#>("")] internal interface I<#=Definition.Id#>Example{}
+	[<#=Definition.Id#>("")] internal struct <#=Definition.Id#>StructExample{}
+	[<#=Definition.Id#>("")] internal class <#=Definition.Id#>Example : I<#=Definition.Id#>Example
+	{
+		[<#=Definition.Id#>("")] internal <#=Definition.Id#>Example() { Variable1 = "1"; Property1 = "1"; }
+		[<#=Definition.Id#>("")] private enum Enum1 {B};
+		[<#=Definition.Id#>("")] private readonly string Variable1;
+		[<#=Definition.Id#>("")] private string Property1 { get; set; }
+		[<#=Definition.Id#>("")] private Enum1 MethodParam1(Enum1 abc){return abc;}
+		[<#=Definition.Id#>("")] delegate bool Delegate1();
+		[<#=Definition.Id#>("")]event Delegate1 Event1;
+	}
+}
