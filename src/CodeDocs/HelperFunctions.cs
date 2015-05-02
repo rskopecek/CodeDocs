@@ -27,14 +27,5 @@ namespace CodeDocs.Helpers
         {
             return DateTime.ParseExact(yyyymmdd.ToString(), "yyyyMMdd", CultureInfo.InvariantCulture);
         }
-
-        /// <summary>
-        /// Short-hand for Uri.IsWellFormedUriString(value, UriKind.RelativeOrAbsolute)
-        /// </summary>
-        public static bool IsUri(this string value)
-        {
-            return Uri.IsWellFormedUriString(value, UriKind.RelativeOrAbsolute);
-        }
-
     }
 }

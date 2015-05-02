@@ -44,6 +44,9 @@
     <Compile Include="Detection\IDetectionScope.cs" />
     <Compile Include="Detection\MemberDetection.cs" />
     <Compile Include="Detection\TypeDetection.cs" />
+    <Compile Include="Evaluation\Result.cs" />
+    <Compile Include="Evaluation\Rule.cs" />
+    <Compile Include="Evaluation\Policy.cs" />
     <Compile Include="Generated\Attributes\Bug.generated.cs" />
     <Compile Include="Generated\Attributes\Cite.generated.cs" />
     <Compile Include="Generated\Attributes\Clarification.generated.cs" />
@@ -183,6 +186,7 @@
     <Compile Include="CI00002\WhenAttribute.cs" />
     <Compile Include="Glue\ICodeDocsAttribute.cs" />
     <Compile Include="Glue\IQualityEvaluator.cs" />
+    <Compile Include="MetadataParserHelpers.cs" />
     <Compile Include="QualityEvaluator.cs" />
     <Compile Include="Glue\IDefinition.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

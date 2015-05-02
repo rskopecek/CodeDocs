@@ -11,15 +11,12 @@ namespace CodeDocs
 
         DateTime? Date { get;  }
 
-        Risk? Risk { get;  }
+        Risk Risk { get;  }
 
-        Effort? Effort { get; }
+        Effort Effort { get; }
 
         string Details { get; }
 
-        string[] Tags { get;  }
-
-        string[] References { get; }
 
         Risk GetRisk();
 

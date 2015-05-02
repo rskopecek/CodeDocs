@@ -8,18 +8,18 @@ using CodeDocs.Helpers;
 
 namespace CodeDocs
 {
+
     public abstract class CodeDocsAttribute : CodeDocsBaseAttribute, ICodeDocsAttribute
     {
 
         protected CodeDocsAttribute(string details, Risk? risk, Effort? effort, int? yyyymmdd,
-            params string[] tagsAndReferences)
+            params string[] metadata)
         {
             Details = details;
-            Risk = risk;
-            Effort = effort;
-            Tags = tagsAndReferences.Where(q => !q.IsUri()).ToArray();
-            References = tagsAndReferences.Where(q => q.IsUri()).ToArray();
+            Risk = risk ?? Risk.Unknown;
+            Effort = effort ?? Effort.Unknown;
             Date = yyyymmdd.ToDate();
+            Metadata = metadata;
         }
 
 
@@ -27,15 +27,13 @@ namespace CodeDocs
 
         public DateTime? Date { get; private set; }
 
-        public Risk? Risk { get; private set; }
+        public Risk Risk { get; private set; }
 
-        public Effort? Effort { get; private set; }
+        public Effort Effort { get; private set; }
 
         public string Details { get; private set; }
 
-        public string[] Tags { get; private set; }
-
-        public string[] References { get; private set; }
+        public string[] Metadata { get; private set; }
 
 
         /// <summary>
@@ -51,9 +49,6 @@ namespace CodeDocs
         /// </summary>
         public Risk GetRisk(IQualityEvaluator evaluator)
         {
-            if (Risk.HasValue)
-                return Risk.Value;
-
             var riskOverride = evaluator.GetRiskOverride(this);
 
             return riskOverride ?? QualityEvaluator.Default.GetDefaultRisk(this);
@@ -72,9 +67,6 @@ namespace CodeDocs
         /// </summary>
         public Effort GetEffort(IQualityEvaluator evaluator)
         {
-            if (Effort.HasValue)
-                return Effort.Value;
-
             var effortOverride = evaluator.GetEffortOverride(this);
 
             return effortOverride ?? QualityEvaluator.Default.GetDefaultEffort(this);
