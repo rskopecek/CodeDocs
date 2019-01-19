@@ -1,92 +1,105 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Globalization;
-using CodeDocs.Helpers;
 
 namespace CodeDocs
 {
-
-    public abstract class CodeDocsAttribute : CodeDocsBaseAttribute, ICodeDocsAttribute
+    public static class Constants
     {
-
-        protected CodeDocsAttribute(string details, Risk? risk, Effort? effort, int? yyyymmdd,
-            params string[] metadata)
-        {
-            Details = details;
-            Risk = risk ?? Risk.Unknown;
-            Effort = effort ?? Effort.Unknown;
-            Date = yyyymmdd.ToDate();
-            Metadata = metadata;
-        }
-
-
-        public abstract IDefinition Definition { get; }
-
-        public DateTime? Date { get; private set; }
-
-        public Risk Risk { get; private set; }
-
-        public Effort Effort { get; private set; }
-
-        public string Details { get; private set; }
-
-        public string[] Metadata { get; private set; }
-
-
-        /// <summary>
-        /// Gets the risk using the default evaluator. (returns Risk ?? Default.Override ?? Default)
-        /// </summary>
-        public Risk GetRisk()
-        {
-            return GetRisk(QualityEvaluator.Default);
-        }
-
-        /// <summary>
-        /// Gets the risk using the provided evaluator. (returns Risk ?? Default.Override ?? Default)
-        /// </summary>
-        public Risk GetRisk(IQualityEvaluator evaluator)
-        {
-            var riskOverride = evaluator.GetRiskOverride(this);
-
-            return riskOverride ?? QualityEvaluator.Default.GetDefaultRisk(this);
-        }
-
-        /// <summary>
-        /// Gets the effort using the default evaluator. (returns Effort ?? Default.Override ?? Default)
-        /// </summary>
-        public Effort GetEffort()
-        {
-            return GetEffort(QualityEvaluator.Default);
-        }
-
-        /// <summary>
-        /// Gets the effort using the provided evaluator. (returns Effort ?? Default.Override ?? Default)
-        /// </summary>
-        public Effort GetEffort(IQualityEvaluator evaluator)
-        {
-            var effortOverride = evaluator.GetEffortOverride(this);
-
-            return effortOverride ?? QualityEvaluator.Default.GetDefaultEffort(this);
-        }
-
-        /// <summary>
-        /// MetaRisk is an evaluation of the quality of the usage of a CodeDocsAttribute itself.  Gets the metarisk using the default evaluator. (returns MetaRisk ?? Default.Override ?? Default)
-        /// </summary>
-        public Risk GetMetaRisk()
-        {
-            return GetMetaRisk(QualityEvaluator.Default);
-        }
-
-        /// <summary>
-        /// MetaRisk is an evaluation of the quality of the usage of a CodeDocsAttribute itself.  Gets the metarisk using the provided evaluator. (returns MetaRisk ?? Default.Override ?? Default)
-        /// </summary>
-        public Risk GetMetaRisk(IQualityEvaluator evaluator)
-        {
-            return evaluator.GetMetaRiskOverride(this) ?? QualityEvaluator.Default.GetDefaultMetaRisk(this);
-        }
+        public const AttributeTargets DetectionScope = AttributeTargets.Assembly | AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Interface | AttributeTargets.Enum | AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Delegate | AttributeTargets.Event | AttributeTargets.Constructor | AttributeTargets.Method;
     }
 
+    public enum Level
+    {
+        NotSet, Tiny, Small, Medium, Large, Massive, Unknown
+    }
+
+    [AttributeUsage(Constants.DetectionScope, AllowMultiple = false, Inherited = false)]
+    public abstract class CodeDocsAttribute : Attribute
+    {
+        public CodeDocsAttribute(
+            string comment = "",
+            int asOf = int.MinValue,
+
+            Level risk = Level.NotSet,
+            long riskAmount = long.MinValue,
+
+            Level effort = Level.NotSet,
+            long effortAmount = long.MinValue,
+
+
+            Level profit = Level.NotSet,
+            long profitAmount = long.MinValue,
+
+            string see = "",
+            
+            string tags = "",
+            string id = "",
+
+
+            // Patterns & Principles
+            Solid solid = Solid.NotSet,
+            Grasp grasp = Grasp.NotSet,
+            Creational creational = Creational.NotSet,
+            Structural structural = Structural.NotSet,
+            Behavioral behavioral = Behavioral.NotSet,
+            Concurrency concurrency = Concurrency.NotSet,
+            Functional functional = Functional.NotSet,
+            Architectural architectural = Architectural.NotSet,
+            CloudDistributed cloudDistributed = CloudDistributed.NotSet,
+            General general = General.NotSet
+
+
+
+            )
+        {
+            Comment = comment;
+            AsOf = asOf.ParseNullableIsoDate();
+
+            Risk = risk;
+            RiskAmount = riskAmount.ParseNullable();
+
+            Effort = effort;
+            EffortAmount = effortAmount.ParseNullable();
+
+            Profit = profit;
+            ProfitAmount = profitAmount.ParseNullable();
+
+            See = see;
+            
+            Tags = tags.ParseTags();
+            Id = id;
+
+            PatternsAndPractices = new PatternsAndPractices(solid, grasp, creational, structural, behavioral, concurrency, functional, architectural, cloudDistributed, general);
+
+            Name = GetType().Name.Replace("Attribute", "");
+        }
+
+
+        public string Name { get; }
+
+        public string Comment { get; }
+
+        public DateTime? AsOf { get; }
+
+        public Level Risk { get; }
+        public long? RiskAmount { get; }
+
+        public Level Effort { get; }
+        public long? EffortAmount { get; }
+
+        public Level Profit { get; }
+        public long? ProfitAmount { get; }
+
+        public string See { get; }
+
+
+        public IEnumerable<string> Tags { get; }
+
+        public string Id { get; } 
+
+        public PatternsAndPractices PatternsAndPractices { get; }
+
+
+
+    }
 }

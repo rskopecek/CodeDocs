@@ -1,159 +1,22 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{43EF3FF9-E19A-4ADC-B527-F2C8F6F804EA}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CodeDocs.Tests</RootNamespace>
-    <AssemblyName>CodeDocs.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
-    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
-    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
-    <IsCodedUITest>False</IsCodedUITest>
-    <TestProjectType>UnitTest</TestProjectType>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="xunit">
-      <HintPath>..\packages\xunit.1.9.2\lib\net20\xunit.dll</HintPath>
-    </Reference>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+    <PackageReference Include="xunit" Version="2.4.0" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
   </ItemGroup>
-  <Choose>
-    <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
-      <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
-      </ItemGroup>
-    </When>
-    <Otherwise />
-  </Choose>
+
   <ItemGroup>
-    <Compile Include="AttributeUsage\ConstructorUsage.cs" />
-    <Compile Include="Detection\ClassDetectionTests.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ClassDetectionTests.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Detection\DetectionTestUtilities.cs" />
-    <Compile Include="Detection\EnumDetectionTests.cs" />
-    <Compile Include="Detection\ExternalAssemblyTests.cs" />
-    <Compile Include="Detection\InterfaceDetectionTests.cs" />
-    <Compile Include="Detection\StructDetectionTests.generated.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>StructDetectionTests.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Generated\CompilableAttributeUsage\Bug.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\Cite.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\Clarification.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\Consequence.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\DeadCode.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\DependancyInversion.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\DontRepeatYourself.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\Feature.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\Future.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\Hack.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\Insecure.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\InterfaceSegregation.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\LeastKnowledge.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\LiskovSubstitution.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\Location.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\MajorChange.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\MajorFix.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\MinorFix.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\Naming.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\OccamsRazor.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\OpenClosed.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\Purpose.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\Readability.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\Refactor.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\Reviewed.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\Security.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\SeparationOfConcerns.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\SingleResponsibility.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\Slow.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\Standards.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\Test.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\Todo.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\Toxic.generated.cs" />
-    <Compile Include="Generated\CompilableAttributeUsage\YouArentGonnaNeedIt.generated.cs" />
-    <Compile Include="HelperFunctions\ToDate_Tests.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <ProjectReference Include="..\CodeDocs\CodeDocs.csproj" />
+    <ProjectReference Include="..\CodeDocs.Examples\CodeDocs.Examples.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="AttributeUsage\Glossary.ttinclude">
-      <LastGenOutput>Glossary1.cs</LastGenOutput>
-    </None>
-    <None Include="Detection\ClassDetectionTests.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ClassDetectionTests.generated.cs</LastGenOutput>
-    </None>
-    <None Include="Detection\StructDetectionTests.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>StructDetectionTests.generated.cs</LastGenOutput>
-    </None>
-    <None Include="packages.config" />
+    <Compile Remove="UnitTest1.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CodeDocs.Usage.Tests\CodeDocs.Usage.Tests.csproj">
-      <Project>{40870b80-7669-419e-9b1c-e3680328593f}</Project>
-      <Name>CodeDocs.Usage.Tests</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CodeDocs\CodeDocs.csproj">
-      <Project>{517e2d06-0782-485a-902e-3ffea2cd5741}</Project>
-      <Name>CodeDocs</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup />
-  <Choose>
-    <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
-      <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.CodedUITestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-          <Private>False</Private>
-        </Reference>
-        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-          <Private>False</Private>
-        </Reference>
-        <Reference Include="Microsoft.VisualStudio.TestTools.UITest.Extension, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-          <Private>False</Private>
-        </Reference>
-        <Reference Include="Microsoft.VisualStudio.TestTools.UITesting, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-          <Private>False</Private>
-        </Reference>
-      </ItemGroup>
-    </When>
-  </Choose>
-  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

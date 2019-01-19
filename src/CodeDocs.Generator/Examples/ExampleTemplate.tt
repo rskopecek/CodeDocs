@@ -1,0 +1,83 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+
+
+
+
+    <#=Doc#> public <#=CoreType#> <#=Name#> :<#=Name#>.I<#=Name#>public, IDisposable
+    {
+        // Checking: static field, instance field, constant, enum, static property, instance property, static method, instance method, delegate, event
+
+<#foreach(var accessor in Accessors){#>
+        <#=Doc#>        <#=accessor#> static bool <#=Name#>_<#=accessor#>StaticField = true;
+        <#=Doc#>        <#=accessor#> bool <#=Name#>_<#=accessor#>Field;
+        <#=Doc#>        <#=accessor#> const bool <#=Name#>_<#=accessor#>Const = true;
+        <#=Doc#>        <#=accessor#> enum <#=Name#>_<#=accessor#>Enum 
+        {
+            <#=Doc#>    <#=Name#><#=accessor#>EnumValue
+        };
+        <#=Doc#>        <#=accessor#> static bool <#=Name#>_<#=accessor#>StaticProperty => true;
+        <#=Doc#>        <#=accessor#> bool <#=Name#>_<#=accessor#>Property => true;
+        <#=Doc#>        <#=accessor#> static bool <#=Name#>_<#=accessor#>StaticMethod() => true;
+        <#=Doc#>        <#=accessor#> bool <#=Name#>_<#=accessor#>Method() => true;
+        <#=Doc#>        <#=accessor#> delegate bool <#=Name#>_<#=accessor#>Delegate();
+        <#=Doc#>        <#=accessor#> event <#=Name#>_<#=accessor#>Delegate <#=Name#>_<#=accessor#>Event;
+                                
+<#}#>
+    
+
+        <#=Doc#> public static <#=Name#> operator+ (<#=Name#> a, <#=Name#> b) => a;
+        
+        // Indexers
+        
+        <#=Doc#> public bool this[int x] => true;
+        
+        // Constructors
+<#if(CoreType=="class"){#>
+        <#=Doc#> public <#=Name#>() { }
+<#}#>        
+        
+<#foreach(var accessor in Accessors){#>
+        <#=Doc#> <#=accessor#> <#=Name#>(<#=ConstructorArgs()#>){
+<#foreach(var a2 in Accessors){#>
+            <#=Name#>_<#=a2#>Field = true;
+            <#=Name#>_<#=a2#>Event = null;
+<#}#>
+        }
+<#}#>  
+        
+        
+        // Finalizers & Disposable
+
+        <#=Doc#> public void Dispose() { return; }
+        
+<#if(CoreType=="class"){#>
+        <#=Doc#> ~<#=Name#>() { Dispose(); }
+<#}#>
+        
+#region Interfaces
+
+<#foreach(var accessor in Accessors){#>
+    <#=Doc#> <#=accessor#> interface I<#=Name#><#=accessor#>
+    {
+        <#=Doc#> bool <#=Name#>_<#=accessor#>Property {get;}
+        <#=Doc#> bool <#=Name#>_<#=accessor#>Method();
+    
+    }
+<#}#>        
+
+#endregion
+
+        // Nested Types
+    #region Nested Types
+    
+<#=NestedType#>
+    
+    #endregion
+    }
+    
+    
+    

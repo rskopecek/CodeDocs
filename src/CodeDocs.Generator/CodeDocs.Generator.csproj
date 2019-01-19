@@ -1,153 +1,47 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{85100EAE-5947-41DE-8ED7-67E78338861C}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CodeDocs.Generator</RootNamespace>
-    <AssemblyName>CodeDocs.Generator</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <None Remove="Templaterazor.cshtml" />
+    <None Remove="PreprocessedT4Template.tt" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Docs\DefinitionGenerator.cs" />
-    <Compile Include="Docs\DocsGenerator.cs" />
-    <Compile Include="Docs\Partials\DefinitionTemplate.cs" />
-    <Compile Include="Docs\Templates\DefinitionTemplate.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DefinitionTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Src\AttributeGenerator.cs" />
-    <Compile Include="Src\ConstantsAndEnumsGenerator.cs" />
-    <Compile Include="Src\DefinitionGenerator.cs" />
-    <Compile Include="Src\GlossaryGenerator.cs" />
-    <Compile Include="Src\InterfaceGenerator.cs" />
-    <Compile Include="Models\Definition.cs" />
-    <Compile Include="Models\Glossary.cs" />
-    <Compile Include="Models\NameValue.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Src\Partials\ConstantsAndEnumsTemplate.cs" />
-    <Compile Include="Src\Partials\GlossaryTemplate.cs" />
-    <Compile Include="Src\SourceGenerator.cs" />
-    <Compile Include="Src\Templates\AttributeTemplate.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>AttributeTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Src\Templates\ConstantsAndEnumsTemplate.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ConstantsAndEnumsTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Src\Templates\DefinitionTemplate.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DefinitionTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Src\Templates\GlossaryTemplate.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GlossaryTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Src\Templates\InterfaceTemplate.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>InterfaceTemplate.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Src\Partials\AttributeTemplate.cs" />
-    <Compile Include="Src\Partials\DefinitionTemplate.cs" />
-    <Compile Include="Src\Partials\InterfaceTemplate.cs" />
-    <Compile Include="Tests\CompilableAttributeUsageGenerator.cs" />
-    <Compile Include="Tests\Partials\CompilableAttributeUsage.cs" />
-    <Compile Include="Tests\Templates\CompilableAttributeUsage.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CompilableAttributeUsage.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Tests\TestGenerator.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="Docs\Templates\DefinitionTemplate.tt">
+    <None Update="Attributes\CodeDocAttributeTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>DefinitionTemplate.cs</LastGenOutput>
+      <LastGenOutput>CodeDocAttributeTemplate.cs</LastGenOutput>
+      <CustomToolNamespace>CodeDocs.Generator</CustomToolNamespace>
     </None>
-    <None Include="glossary.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="packages.config" />
-    <None Include="Src\Templates\AttributeTemplate.tt">
+    <None Update="Examples\ExampleTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>AttributeTemplate.cs</LastGenOutput>
+      <LastGenOutput>ExampleTemplate.cs</LastGenOutput>
+      <CustomToolNamespace>CodeDocs.Generator</CustomToolNamespace>
     </None>
-    <None Include="Src\Templates\ConstantsAndEnumsTemplate.tt">
+    <None Update="Examples\ExampleWrapperTemplate.tt">
       <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>ConstantsAndEnumsTemplate.cs</LastGenOutput>
-    </None>
-    <None Include="Src\Templates\DefinitionTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>DefinitionTemplate.cs</LastGenOutput>
-    </None>
-    <None Include="Src\Templates\GlossaryTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>GlossaryTemplate.cs</LastGenOutput>
-    </None>
-    <None Include="Src\Templates\InterfaceTemplate.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>InterfaceTemplate.cs</LastGenOutput>
-    </None>
-    <None Include="Tests\Templates\CompilableAttributeUsage.tt">
-      <Generator>TextTemplatingFilePreprocessor</Generator>
-      <LastGenOutput>CompilableAttributeUsage.cs</LastGenOutput>
+      <LastGenOutput>ExampleWrapperTemplate.cs</LastGenOutput>
+      <CustomToolNamespace>CodeDocs.Generator</CustomToolNamespace>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Attributes\CodeDocAttributeTemplate.cs">
+      <DependentUpon>CodeDocAttributeTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Examples\ExampleTemplate.cs">
+      <DependentUpon>ExampleTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Update="Examples\ExampleWrapperTemplate.cs">
+      <DependentUpon>ExampleWrapperTemplate.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
+  <ItemGroup>
+    <PackageReference Include="System.CodeDom" Version="4.5.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Attributes\" />
+    <Folder Include="Examples\" />
+  </ItemGroup>
 </Project>
