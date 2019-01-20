@@ -10,10 +10,10 @@
     <PackageLicenseUrl>https://github.com/rskopecek/CodeDocs/blob/master/LICENSE</PackageLicenseUrl>
     <Owners>Randy Skopecek</Owners>
     <PackageProjectUrl>https://github.com/rskopecek/CodeDocs</PackageProjectUrl>
-    <Summary>Code Quality Metadata.  Filling the gap of known areas of improvement that still have to ship.  Good for code reviews.  MIT Licensed.</Summary>
+    <Summary>Code Quality Metadata.  Filling the gap of known areas of improvement that still have to ship, or already has.  Good for code reviews.  MIT Licensed.</Summary>
     <PackageTags>code-quality, code-reviews</PackageTags>
     <Title>CodeDocs</Title>
-    <Description>Code Quality Metadata.  Filling the gap of known areas of improvement that still have to ship.  Good for code reviews.  MIT Licensed.</Description>
+    <Description>Code Quality Metadata.  Filling the gap of known areas of improvement that still have to ship, or already has.  Good for code reviews.  MIT Licensed.</Description>
     <PackageReleaseNotes>Rebuilt.  See project on github to provide feedback on v1.</PackageReleaseNotes>
   </PropertyGroup>
 
