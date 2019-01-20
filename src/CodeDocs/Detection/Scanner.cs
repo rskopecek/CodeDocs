@@ -58,14 +58,21 @@ namespace CodeDocs.Detection
 
 
         public static IEnumerable<MemberInfo> DetectMembers(this Type type, bool includeNestedTypes)
-            => type.GetMembers(Flags).Where(m => Attribute.IsDefined(m, DocType) && (m is TypeInfo) == includeNestedTypes);
+            => type.GetMembers(Flags)
+                    .Where(m => Attribute.IsDefined(m, DocType))
+                    .Where(m => includeNestedTypes || !(m is TypeInfo));
 
+        /// <summary>
+        /// Detects codedoc attributes attached to the member without inheriting
+        /// </summary>
         public static IEnumerable<CodeDocsAttribute> GetCodeDocAttributes(MemberInfo member)
-            => member.GetCustomAttributes(DocType, false)
-                .Select(a => (CodeDocsAttribute)a);
+            => member.GetCustomAttributes(DocType, false).Select(a => (CodeDocsAttribute)a);
 
         // - Formatting
 
+        /// <summary>
+        /// Enumerates all levels to provide the doc and att together as a single enumerable
+        /// </summary>
         public static IEnumerable<(ICodeDoc doc, CodeDocsAttribute att)> Flatten(this IEnumerable<ICodeDoc> docs)
         {
             foreach (var doc in docs)

@@ -1,6 +1,7 @@
 ﻿using System;
 namespace CodeDocs
 {
+    [Flags]
     public enum Grasp
     {
         NotSet = 0,

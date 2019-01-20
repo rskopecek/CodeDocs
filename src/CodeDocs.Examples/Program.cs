@@ -14,7 +14,7 @@ namespace CodeDocs.Examples
         {
 
             var docs = typeof(PrimaryType).Assembly.GetCodeDocs()
-                    .AllDocs().Flatten()
+                    .AllDocs().Flatten().Where(e => int.TryParse(e.att.Comment, out int r))
                     .OrderBy(e => int.Parse(e.att.Comment)).ToList();
 
             foreach(var doc in docs)
@@ -24,7 +24,7 @@ namespace CodeDocs.Examples
             Console.WriteLine();
             Console.WriteLine();
         }
-    }
 
+    }
 
 }

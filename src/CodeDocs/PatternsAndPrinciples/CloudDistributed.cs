@@ -2,7 +2,7 @@
 namespace CodeDocs
 {
     // https://en.wikipedia.org/wiki/Architectural_pattern
-
+    [Flags]
     public enum CloudDistributed
     {
         NotSet = 0,

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 
@@ -25,8 +26,13 @@ namespace CodeDocs
             catch { return DateTime.MinValue.Date; }
 
         }
-        public static string[] ParseTags(this string value)
-            => value.Split(',').Select(t => t.Trim().ToLowerInvariant()).ToArray();
+
+        public static readonly char[] TagDelimiters = { ',' };
+
+        public static IEnumerable<string> ParseTags(this string value)
+            => value.Trim()
+                .Split(TagDelimiters, StringSplitOptions.RemoveEmptyEntries)
+                .Select(t => t.Trim().ToLowerInvariant());
 
     }
 }

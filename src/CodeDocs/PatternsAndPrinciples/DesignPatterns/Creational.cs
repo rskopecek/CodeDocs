@@ -2,6 +2,7 @@
 namespace CodeDocs
 {
     // Design Patterns - https://en.wikipedia.org/wiki/Software_design_pattern
+    [Flags]
     public enum Creational
     {
         NotSet = 0,

@@ -2,6 +2,7 @@
 namespace CodeDocs
 {
     //https://en.wikipedia.org/wiki/Architectural_pattern
+    [Flags]
     public enum Functional
     {
         NotSet = 0,

@@ -3,6 +3,7 @@ namespace CodeDocs
 {
     // https://en.wikipedia.org/wiki/SOLID
     // https://en.wikipedia.org/wiki/Category:Programming_principles
+    [Flags]
     public enum Solid
     {
         NotSet = 0,

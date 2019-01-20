@@ -35,6 +35,7 @@ namespace CodeDocs.Tests.Parsing
 
     public class ParseTags
     {
+
         [Theory]
         [InlineData("a,b,c", "a,b,c")]
         [InlineData("a b,c", "a b,c")]
@@ -44,6 +45,11 @@ namespace CodeDocs.Tests.Parsing
         [Fact]
         public void TrimsSurroundingSpaces()
             => Assert.Equal("a,b" , string.Join(',', " a , b ".ParseTags()));
+
+        [Theory, InlineData(""), InlineData(" ")]
+        public void EmptyStringReturnsEmptyEnumerable(string value)
+            => Assert.Empty(value.ParseTags());
+
     }
 
 }

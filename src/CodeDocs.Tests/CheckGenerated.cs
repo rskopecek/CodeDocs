@@ -14,7 +14,7 @@ namespace CodeDocs.Tests
 
         List<(ICodeDoc doc, CodeDocsAttribute att)> docs = 
             typeof(PrimaryType).Assembly.GetCodeDocs()
-            .AllDocs().Flatten()
+            .AllDocs().Flatten().Where(e=> int.TryParse(e.att.Comment, out int r))
             .OrderBy(e => int.Parse(e.att.Comment)).ToList();
 
         [Fact]
