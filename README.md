@@ -22,7 +22,7 @@ Goals:
 - [ ] 0.4+.x = TBD
 - [ ] 1.0
 
-*Historical: If you used the nuget prerelease versions (CI00002) from 2014, while the changes are breaking, most of the capabilities translate into a different representation.  If there is a particular item not migrated, please comment as such and your use case in the above listed area.*
+*Historical: If you used the nuget prerelease versions (CI00002) from 2014, while the changes are breaking, most of the capabilities translate into a different representation.  If there is a particular item not migrated, please comment as such and your use case in the above listed area.  To prevent potential confusion for the project direction, the 3 original prerelase versions (1.0.0-CI00002, 2.0.0-CI00002, 2.0.1-CI00002) are being unlisted.  However, they can still be accessed by their specific version number on nuget.*
 
 ## Rules & Goals
 
