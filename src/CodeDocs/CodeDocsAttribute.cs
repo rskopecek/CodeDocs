@@ -69,7 +69,7 @@ namespace CodeDocs
             Tags = tags.ParseTags();
             Id = id;
 
-            PatternsAndPractices = new PatternsAndPractices(solid, grasp, creational, structural, behavioral, concurrency, functional, architectural, cloudDistributed, general);
+            PatternsAndPrinciples = new PatternsAndPrinciples(solid, grasp, creational, structural, behavioral, concurrency, functional, architectural, cloudDistributed, general);
 
             Name = GetType().Name.Replace("Attribute", "");
         }
@@ -97,7 +97,7 @@ namespace CodeDocs
 
         public string Id { get; } 
 
-        public PatternsAndPractices PatternsAndPractices { get; }
+        public PatternsAndPrinciples PatternsAndPrinciples { get; }
 
 
 

@@ -43,16 +43,19 @@ namespace CodeDocs.Tests
             Assert.Equal(300, att.ProfitAmount);
             Assert.Equal("reference", att.See);
             Assert.Equal(new []{"tag"}, att.Tags.ToArray());
-            Assert.Equal(Solid.DependencyInversion | Solid.SingleResponsibility, att.PatternsAndPractices.Solid);
-            Assert.Equal(Grasp.HighCohesion | Grasp.Polymorphism, att.PatternsAndPractices.Grasp);
-            Assert.Equal(Creational.AbstractFactory | Creational.Builder, att.PatternsAndPractices.Creational);
-            Assert.Equal(Structural.Adapter | Structural.Bridge, att.PatternsAndPractices.Structural);
-            Assert.Equal(Behavioral.Blackboard | Behavioral.ChainOfResponsibility, att.PatternsAndPractices.Behavioral);
-            Assert.Equal(Concurrency.ActiveObject | Concurrency.ReadWriterLock, att.PatternsAndPractices.Concurrency);
-            Assert.Equal(Functional.Closure | Functional.Monad, att.PatternsAndPractices.Functional);
-            Assert.Equal(Architectural.ActiveRecord | Architectural.ClientServer, att.PatternsAndPractices.Architectural);
-            Assert.Equal(CloudDistributed.Ambassador | CloudDistributed.Bulkhead, att.PatternsAndPractices.CloudDistributed);
-            Assert.Equal(General.DontRepeatYourself | General.NoSideEffects, att.PatternsAndPractices.General);
+
+            var p = att.PatternsAndPrinciples;
+
+            Assert.Equal(Solid.DependencyInversion | Solid.SingleResponsibility, p.Solid);
+            Assert.Equal(Grasp.HighCohesion | Grasp.Polymorphism, p.Grasp);
+            Assert.Equal(Creational.AbstractFactory | Creational.Builder, p.Creational);
+            Assert.Equal(Structural.Adapter | Structural.Bridge, p.Structural);
+            Assert.Equal(Behavioral.Blackboard | Behavioral.ChainOfResponsibility, p.Behavioral);
+            Assert.Equal(Concurrency.ActiveObject | Concurrency.ReadWriterLock, p.Concurrency);
+            Assert.Equal(Functional.Closure | Functional.Monad, p.Functional);
+            Assert.Equal(Architectural.ActiveRecord | Architectural.ClientServer, p.Architectural);
+            Assert.Equal(CloudDistributed.Ambassador | CloudDistributed.Bulkhead, p.CloudDistributed);
+            Assert.Equal(General.DontRepeatYourself | General.NoSideEffects, p.General);
 
         }
 

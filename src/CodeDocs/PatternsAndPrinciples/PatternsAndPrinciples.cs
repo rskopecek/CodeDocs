@@ -2,9 +2,9 @@
 
 namespace CodeDocs
 {
-    public class PatternsAndPractices
+    public class PatternsAndPrinciples
     {
-        public PatternsAndPractices
+        public PatternsAndPrinciples
         (
             Solid solid, Grasp grasp,
             Creational creational, Structural structural, Behavioral behavioral, Concurrency concurrency,
