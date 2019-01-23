@@ -60,7 +60,7 @@ namespace CodeDocs.Detection
         public static IEnumerable<MemberInfo> DetectMembers(this Type type, bool includeNestedTypes)
             => type.GetMembers(Flags)
                     .Where(m => Attribute.IsDefined(m, DocType))
-                    .Where(m => includeNestedTypes || !(m is TypeInfo));
+                    .Where(m => includeNestedTypes || !(m is Type));
 
         /// <summary>
         /// Detects codedoc attributes attached to the member without inheriting
@@ -73,11 +73,11 @@ namespace CodeDocs.Detection
         /// <summary>
         /// Enumerates all levels to provide the doc and att together as a single enumerable
         /// </summary>
-        public static IEnumerable<(ICodeDoc doc, CodeDocsAttribute att)> Flatten(this IEnumerable<ICodeDoc> docs)
+        public static IEnumerable<FlatDoc> Flatten(this IEnumerable<ICodeDoc> docs)
         {
             foreach (var doc in docs)
                 foreach (var att in doc.Docs)
-                    yield return (doc, att);
+                    yield return new FlatDoc(doc, att);
         }
 
     }

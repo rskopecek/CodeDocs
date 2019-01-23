@@ -14,11 +14,11 @@ namespace CodeDocs.Examples
         {
 
             var docs = typeof(PrimaryType).Assembly.GetCodeDocs()
-                    .AllDocs().Flatten().Where(e => int.TryParse(e.att.Comment, out int r))
-                    .OrderBy(e => int.Parse(e.att.Comment)).ToList();
+                    .AllDocs().Flatten().Where(e => int.TryParse(e.Att.Comment, out int r))
+                    .OrderBy(e => int.Parse(e.Att.Comment)).ToList();
 
             foreach(var doc in docs)
-                Console.WriteLine($"{string.Format("{0,4}", doc.att.Comment)}.  {doc.att.Name}: {doc.doc.Name}");
+                Console.WriteLine($"{string.Format("{0,4}", doc.Att.Comment)}.  {doc.Att.Name}: {doc.Doc.Name}");
 
             Console.WriteLine();
             Console.WriteLine();

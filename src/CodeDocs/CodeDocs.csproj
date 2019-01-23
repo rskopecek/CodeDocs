@@ -1,10 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <PackOnBuild>true</PackOnBuild>
+    <TargetFrameworks>netstandard2.0;net35;net462;net472</TargetFrameworks>
     <PackageId>codedocs</PackageId>
-    <PackageVersion>0.1.0</PackageVersion>
+    <PackageVersion>0.1.1</PackageVersion>
     <Authors>Randy Skopecek</Authors>
     <PackageIconUrl>https://raw.githubusercontent.com/rskopecek/CodeDocs/master/logo.jpg</PackageIconUrl>
     <PackageLicenseUrl>https://github.com/rskopecek/CodeDocs/blob/master/LICENSE</PackageLicenseUrl>
@@ -14,14 +13,18 @@
     <PackageTags>code-quality, code-reviews</PackageTags>
     <Title>CodeDocs</Title>
     <Description>Code Quality Metadata.  Filling the gap of known areas of improvement that still have to ship, or already has.  Good for code reviews.  MIT Licensed.</Description>
-    <PackageReleaseNotes>Rebuilt.  See project on github to provide feedback on v1.</PackageReleaseNotes>
+    <PackageReleaseNotes>Added multitargeting for 3.5, 4.6.2, and 4.7.2.  Minor breaking change on Flatten() response type.</PackageReleaseNotes>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <Version>0.1.1</Version>
   </PropertyGroup>
 
+  <ItemGroup Condition="'$(TargetFramework)'=='net35' or '$(TargetFramework)'=='net462' or '$(TargetFramework)'=='net472'">
+    <Reference Include="System" />
+  </ItemGroup>
+  
   <ItemGroup>
     <Folder Include="PatternsAndPrinciples\" />
     <Folder Include="PatternsAndPrinciples\DesignPatterns\" />
-    <Folder Include="Detection\" />
-    <Folder Include="Detection\Docs\" />
     <Folder Include="Generated\" />
   </ItemGroup>
   <ItemGroup>

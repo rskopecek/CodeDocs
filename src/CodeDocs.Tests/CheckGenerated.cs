@@ -12,10 +12,10 @@ namespace CodeDocs.Tests
     public class CheckGenerated
     {
 
-        List<(ICodeDoc doc, CodeDocsAttribute att)> docs = 
+        List<FlatDoc> docs = 
             typeof(PrimaryType).Assembly.GetCodeDocs()
-            .AllDocs().Flatten().Where(e=> int.TryParse(e.att.Comment, out int r))
-            .OrderBy(e => int.Parse(e.att.Comment)).ToList();
+            .AllDocs().Flatten().Where(e=> int.TryParse(e.Att.Comment, out int r))
+            .OrderBy(e => int.Parse(e.Att.Comment)).ToList();
 
         [Fact]
         public void SummaryCountMatchesGenerated()
@@ -27,7 +27,7 @@ namespace CodeDocs.Tests
         public void EachItemIdentifiedOnlyOnce()
         {
             for (var x = 1; x <= Summary.ItemCount; x++)
-                Assert.Equal(1, docs.Count(q => int.Parse(q.att.Comment) == x));
+                Assert.Equal(1, docs.Count(q => int.Parse(q.Att.Comment) == x));
         }
 
         }
