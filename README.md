@@ -97,9 +97,14 @@ Docs are item level (domain, assembly, type, or member) with potentially multipl
         
         // or typeof(this).GetCodeDocs();
         // or typeof(abc).Assembly.GetCodeDocs();
+        // or typeof(this).Assembly.GetCodeDocs(type => type.Namespace.Contains("MyStuff.SectionA"))
+        // or AppDomain.CurrentDomain.GetCodeDocs(assembly => assembly.Name.Contains("MyStuff"));
         
-        var allItems = docs.AllDocs(); // Enumerates all item levels
-        var allAtts = allItems.Flatten(); // Singular list of doc/att
+        // Extensions for individual and IEnumerable app domain, assembly, type, and member, instance object are available
+        
+        var csv = docs.ToCsv();
+
+        // See CodeDocs.Examples console app for runnable samples of 3k+ docs
     }
 ```
 
