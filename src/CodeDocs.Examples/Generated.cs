@@ -4,7 +4,6 @@ using CodeDocs;
 
 namespace CodeDocs.Examples.Generated
 {
-
     public static class Summary 
     {
         public static int ItemCount => 3801;

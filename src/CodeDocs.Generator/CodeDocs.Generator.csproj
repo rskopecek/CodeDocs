@@ -29,6 +29,8 @@
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="Attributes\CodeDocAttributeTemplate.cs">
       <DependentUpon>CodeDocAttributeTemplate.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Update="Examples\ExampleTemplate.cs">
       <DependentUpon>ExampleTemplate.tt</DependentUpon>
@@ -43,5 +45,8 @@
   <ItemGroup>
     <Folder Include="Attributes\" />
     <Folder Include="Examples\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
   </ItemGroup>
 </Project>

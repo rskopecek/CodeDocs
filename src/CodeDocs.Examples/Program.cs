@@ -9,20 +9,21 @@ namespace CodeDocs.Examples
 {
     class Program
     {
-
         static void Main(string[] args)
         {
+            Console.WriteLine($"Press any key to see a lot of detected stuff...{Environment.NewLine}");
 
-            var docs = typeof(PrimaryType).Assembly.GetCodeDocs()
-                    .AllDocs().Flatten().Where(e => int.TryParse(e.Att.Comment, out int r))
-                    .OrderBy(e => int.Parse(e.Att.Comment)).ToList();
+            Console.ReadKey();
 
-            foreach(var doc in docs)
-                Console.WriteLine($"{string.Format("{0,4}", doc.Att.Comment)}.  {doc.Att.Name}: {doc.Doc.Name}");
+            var csv = typeof(PrimaryType).Assembly
+                        .GetCodeDocs(t=> t.Namespace.Contains("CodeDocs.Examples.Generated"))
+                        .OrderBy(e => int.Parse(e.Comment))
+                        .ToCsv();
 
-            Console.WriteLine();
-            Console.WriteLine();
-            Console.WriteLine();
+            Console.WriteLine(csv);
+          
+            Console.ReadKey();
+  
         }
 
     }

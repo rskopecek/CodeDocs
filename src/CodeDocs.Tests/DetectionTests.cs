@@ -30,7 +30,7 @@ namespace CodeDocs.Tests
         )]
         public void AllValuesSave()
         {
-            var att = typeof(DetectionTests).GetCodeDocs().AllDocs().Flatten().FirstOrDefault().Att;
+            var att = typeof(DetectionTests).GetCodeDocs().First();
 
             Assert.Equal("comment", att.Comment);
             Assert.Equal("id", att.Id);

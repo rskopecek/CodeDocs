@@ -1,21 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
+using System.Reflection;
+using System.Linq;
+using static System.AttributeTargets;
+using System.Runtime.CompilerServices;
 
+#if DEBUG
+[assembly: InternalsVisibleTo("CodeDocs.Tests")]
+#endif
 namespace CodeDocs
 {
-    public static class Constants
-    {
-        public const AttributeTargets DetectionScope = AttributeTargets.Assembly | AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Interface | AttributeTargets.Enum | AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Delegate | AttributeTargets.Event | AttributeTargets.Constructor | AttributeTargets.Method;
-    }
 
     public enum Level
     {
         NotSet, Tiny, Small, Medium, Large, Massive, Unknown
     }
 
-    [AttributeUsage(Constants.DetectionScope, AllowMultiple = false, Inherited = false)]
-    public abstract class CodeDocsAttribute : Attribute
+    [AttributeUsage(DetectionScope, AllowMultiple = false, Inherited = false)]
+    public abstract class CodeDocsAttribute : Attribute, ICodeDoc
     {
+        public const AttributeTargets DetectionScope = AttributeTargets.Assembly | Class | Struct | Interface | AttributeTargets.Enum | Field | Property | AttributeTargets.Delegate | Event | Constructor | Method;
+
+
         public CodeDocsAttribute(
             string comment = "",
             int asOf = int.MinValue,
@@ -31,10 +38,9 @@ namespace CodeDocs
             long profitAmount = long.MinValue,
 
             string see = "",
-            
+
             string tags = "",
             string id = "",
-
 
             // Patterns & Principles
             Solid solid = Solid.NotSet,
@@ -52,7 +58,7 @@ namespace CodeDocs
 
             )
         {
-            Comment = comment;
+            Comment = comment == null ? "" : comment.CleanseComment(); // net35 doesn't have IsNullOrEmpty/etc
             AsOf = asOf.ParseNullableIsoDate();
 
             Risk = risk;
@@ -99,6 +105,49 @@ namespace CodeDocs
 
         public PatternsAndPrinciples PatternsAndPrinciples { get; }
 
+        public Assembly Assembly { get; private set; }
+        public Type Type { get; private set; }
+        public MemberInfo Member { get; private set; }
+
+        internal CodeDocsAttribute UpdateContext(Type type, MemberInfo member)
+        {
+            if (Assembly != null) return this;
+
+            Assembly = type.Assembly;
+            Type = type;
+            Member = member;
+
+            return this;
+        }
+
+        public static string ToStringHeader
+            => "Assembly,Type,Member,Attribute,Comment,AsOf,Risk,RiskAmount,Effort,EffortAmount,Profit,ProfitAmount,See,Tags,Id,PatternAndPrinciples";
+
+        public override string ToString()
+        {
+            var values = new string[]
+            {
+                Assembly.GetName().Name,
+                Type.FullName,
+                Member.Name,
+                Name,
+                $"\"{Comment}\"",
+                AsOf.HasValue ? AsOf.Value.ToString("yyyy-MM-dd") : "",
+                Risk == Level.NotSet ? "" : Risk.ToString(),
+                RiskAmount.HasValue ? RiskAmount.Value.ToString() : "",
+                Effort == Level.NotSet ? "" : Effort.ToString(),
+                EffortAmount.HasValue ? EffortAmount.Value.ToString() : "",
+                Profit == Level.NotSet ? "" : Profit.ToString(),
+                ProfitAmount.HasValue ? ProfitAmount.Value.ToString() : "",
+                See,
+                $"\"{string.Join(",", Tags.ToArray())}\"",
+                Id,
+                $"\"{PatternsAndPrinciples.ToString()}\""
+            };
+
+            return string.Join(",", values);
+
+        }
 
 
     }

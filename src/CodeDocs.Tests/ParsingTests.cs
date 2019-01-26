@@ -28,9 +28,13 @@ namespace CodeDocs.Tests.Parsing
         public void ReturnsDateForYYYYMMDD()
             => Assert.Equal(new DateTime(2019,1,1), int.Parse((new DateTime(2019, 1, 1)).ToString("yyyyMMdd")).ParseNullableIsoDate());
 
-        [Theory, InlineData(0), InlineData(int.MinValue), InlineData(-1), InlineData(2019_02_31)]
+        [Theory, InlineData(0), InlineData(-1), InlineData(2019_02_31)]
         public void ImproperDatesReturnDateMin(int value)
             => Assert.Equal(DateTime.MinValue.Date, value.ParseNullableIsoDate());
+
+        [Fact]
+        public void IntMinShouldReturnNull()
+            => Assert.Null(int.MinValue.ParseNullableIsoDate());
     }
 
     public class ParseTags

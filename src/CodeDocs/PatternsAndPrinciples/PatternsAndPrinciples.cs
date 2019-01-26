@@ -45,5 +45,26 @@ namespace CodeDocs
 
         public General General { get; }
 
+        public override string ToString()
+        {
+            var values = new string[] 
+            {
+                Solid.ToString(),
+                Grasp.ToString(),
+                Creational.ToString(),
+                Structural.ToString(),
+                Behavioral.ToString(),
+                Concurrency.ToString(),
+                Functional.ToString(),
+                Architectural.ToString(),
+                CloudDistributed.ToString(),
+                General.ToString()
+            };
+
+            string[] splitter = new string[] { "," };
+
+            return String.Join(",",string.Join(",", values).Replace(" ", "").Replace("NotSet","").Split(splitter, StringSplitOptions.RemoveEmptyEntries));
+        }
+
     }
 }

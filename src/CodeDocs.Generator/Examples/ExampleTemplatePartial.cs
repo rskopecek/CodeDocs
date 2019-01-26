@@ -30,19 +30,9 @@ namespace CodeDocs.Generator
         {
             get
             {
-                //return $"[Reinventing(\"{GetId()}\")]";
-
                 var atts = string.Join(',', Definition.List.Select(att => $"{att.Name}(\"{GetId()}\")"));
 
                 return $"[{atts}]{Environment.NewLine}";
-
-                //var sb = new StringBuilder();
-
-                //foreach (var att in Definition.List)
-                //    sb.AppendLine($"[{att.Name}(\"{GetId()}\")]");
-
-                //return sb.ToString();
-                //return $"[Bug(\"{GetId()}\")]"; 
             }
         }
 
